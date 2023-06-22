@@ -1,0 +1,78 @@
+/**
+ * Generates the custom CSS by retrieving form values and substituting into
+ * templated CSS overrides and base
+ */
+const generateCSS = function () {
+
+  const overrideCSS = `
+  :root {
+    /********************************************************
+    * COMPANY LOGO
+    *********************************************************/
+    --company-logo-img-url: url("${getFormValue("company-logo-img-url")}");
+    --company-logo-height: ${getFormValue("company-logo-height")}px;
+
+    /********************************************************
+    * PAGE BACKGROUND 
+    *********************************************************/
+    --background-image-url: url("${getFormValue("background-image-url")}");
+
+    /********************************************************
+    * CARD BODY
+    *********************************************************/
+    --card-background-color: rgb(${hexToRgb(getFormValue("card-background-color"))});
+
+    /********************************************************
+    * BODY
+    *********************************************************/
+    --body-font-family: ${getFormValue("body-font-family")};
+    --body-font-size: ${getFormValue("body-font-size")}rem;
+
+    /********************************************************
+    * TEXT FONT COLORS
+    *********************************************************/
+
+    /*  PRIMARY FONT COLOR (RGB) */
+    --text-color-primary: ${hexToRgb(getFormValue("text-color-primary"))};
+
+    /*  MUTED TEXT ALPHA  */
+    --text-color-muted-apha: 0.75;
+
+    /*  ERROR FONT COLOR  */
+    --text-color-error: rgb(${hexToRgb(getFormValue("text-color-error"))});
+
+    /********************************************************
+    * BUTTON ATTRIBUTES
+    *********************************************************/
+
+    /*  BUTTON FONT COLOR  */
+    --button-primary-text-color: rgb(${hexToRgb(getFormValue("button-primary-text-color"))});
+
+    /*  BUTTON BACKGROUND COLOR & LINK BUTTON FONT COLOR (RGB)  */
+    --button-primary-background-color: ${hexToRgb(getFormValue("button-primary-background-color"))};
+
+    /*  BUTTON HOVER ALPHA  */
+    --button-hover-alpha: 0.70;
+
+    /*  BUTTON ACTIVE ALPHA  */
+    --button-active-alpha: 0.80;
+
+    /*  BUTTON DISABLED ALPHA  */
+    --button-disabled-alpha: 0.65;
+
+    /********************************************************
+    * ACTIVITY INDICATOR & BUTTON SPINNER COLOR
+    *********************************************************/
+
+    --activity-indicator-color: rgb(${hexToRgb(getFormValue("activity-indicator-color"))});
+
+    /********************************************************
+    * APPLYING TEXT COLOR - DO NOT CHANGE
+    *********************************************************/
+    /* H1,H2, H3, Body text color */
+    --bs-body-color: rgb(var(--text-color-main)) !important;
+    --bs-danger-rgb: var(--text-color-error);
+  }
+  `
+  return overrideCSS + baseCSS
+}
