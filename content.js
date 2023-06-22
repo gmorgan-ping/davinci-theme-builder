@@ -1,27 +1,24 @@
-console.log("content script running")
 
-// In your content script (content.js)
+// Add event listener to accept incoming messages
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 
   if (message.action === "applyDaVinciCSS") {
 
     if (message.css) {
-      const styleId = "davinci-css"
+      const styleId = "davinci-theme-builder-css"
       let prevStyle = document.getElementById(styleId);
-      // Remove the previous version if present
       if (prevStyle) {
         prevStyle.parentElement.removeChild(prevStyle)
       }
 
       const style = document.createElement("style");
-      style.id = "davinci-css";
+      style.id = styleId;
       style.appendChild(document.createTextNode(message.css));
       var head = document.head;
       head.appendChild(style);
     }
-    // Handle the message from the popup
-    console.log("Applying CSS from chrome extension");
+    console.log("Applying CSS from DaVinci Theme Builder extension");
   } else {
-    console.log("Didn't match type")
+    console.log("DaVinci Theme Builder: Message.action match type error")
   }
 });
