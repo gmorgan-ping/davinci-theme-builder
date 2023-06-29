@@ -1,3 +1,8 @@
+:root {
+  --border-color: #222222;
+  --background-color: #3d3d3d;
+}
+
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif !important;
 }
@@ -8,30 +13,28 @@ body {
 }
 
 .wrapperDiv {
-  background-color: #3d3d3d;
+  background-color: var(--background-color);
   width: 670px;
-  /* height: 320px; */
   padding: 10px;
   border-radius: 5px;
-  border: 2px solid #222222;
+  border: 2px solid var(--border-color);
 }
 
 input[type=text] {
   width: 100%;
-  border: 1px solid #222222;
+  border: 1px solid var(--border-color);
   border-radius: 3px;
 }
 
 #palettePanelDiv {
-
   background-color: whitesmoke;
-  border: 2px solid #222222;
+  border: 2px solid var(--border-color);
   padding: 10px;
   border-radius: 5px;
 }
 
 td {
-  padding-right: 5px;
+  padding-right: 10px;
   padding-bottom: 5px
 }
 
@@ -45,7 +48,7 @@ button.cssAction {
   font-size: 13px;
   cursor: pointer;
   width: 140px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+  height: 28px;
   box-shadow: none;
   transition: box-shadow 0.3s ease;
 }
@@ -56,44 +59,9 @@ button.cssAction+button.cssAction {
 
 button.cssAction:hover {
   border-color: #4169e1;
-  /* background-color: #eeeeee; */
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* MODAL POPUP CSS */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-content {
-  background-color: whitesmoke;
-  margin: 15% auto;
-  padding: 20px;
-  border: 2px solid #222222;
-  border-radius: 5px;
-  width: 300px;
-}
-
-.modal-title {
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.modal-input {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  box-sizing: border-box;
-}
-
-.modal-buttons {
-  text-align: right;
+button.cssActionActive {
+  background-color: #9dc967;
 }

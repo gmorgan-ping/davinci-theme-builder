@@ -172,7 +172,6 @@ const getFormValue = function (id) {
   return elementValue;
 }
 
-
 /**
  * Sets the value of an HTML element based on its ID
  * @param {string} id - The ID of the HTML element
@@ -248,11 +247,11 @@ const updateButtonText = function (button, newText, duration) {
 
   // Update the button text to the new text
   button.textContent = newText;
-  button.style.backgroundColor = "#c6ea99";
+  button.classList.toggle("cssActionActive");
 
   setTimeout(function () {
     button.textContent = originalText;
-    button.style.backgroundColor = originalBackgroundColor;
+    button.classList.toggle("cssActionActive");
   }, duration);
 }
 
