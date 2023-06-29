@@ -13,8 +13,12 @@ const initializeExtension = function () {
   const themeSelect = document.getElementById("example-themes");
   buildSelectOptions(themeSelect, exampleThemes);
   themeSelect.addEventListener("change", function (e) {
-    loadThemeSettings(parseInt(e.currentTarget.value));
+    loadThemeSettings(e.currentTarget.value);
   });
+
+  // Build form position
+  const formPositionSelect = document.getElementById("form-position");
+  buildSelectOptions(formPositionSelect, divFormPositions);
 
   // Create handler to place generated CSS on clipboard
   const copyCSSToClipboardBtn = document.getElementById("btnCopyCSS");
@@ -32,46 +36,9 @@ const initializeExtension = function () {
   // Create handler to reset CSS to the original values 
   const resetCSSBtn = document.getElementById("btnResetCSS");
   resetCSSBtn.addEventListener("click", function (e) {
-    loadThemeSettings(parseInt(themeSelect.value));
+    loadThemeSettings(themeSelect.value);
     applyCSSFromFormControls();
     updateButtonText(e.currentTarget, "✓ Restored", 1000); (e);
-  });
-
-  // Create handler to reset CSS to the original values 
-  const saveCSSBtn = document.getElementById("btnSaveCSS");
-  saveCSSBtn.addEventListener("click", function (e) {
-    const modal = document.getElementById("myModal");
-    const themeNameInput = document.getElementById("themeName");
-    modal.style.display = "block";
-    themeNameInput.focus();
-  });
-
-  // Create handler to close save theme modal
-  const cancelThemeButton = document.getElementById("cancelThemeButton");
-  cancelThemeButton.addEventListener("click", function (e) {
-    const modal = document.getElementById("myModal");
-    modal.style.display = "none";
-  });
-
-  // Create handler to save new theme 
-  const saveAsThemeButton = document.getElementById("saveThemeButton");
-  saveAsThemeButton.addEventListener("click", function (e) {
-    const themeNameInput = document.getElementById("themeName");
-
-    // Create event handlers for form controls
-    const paletteForm = document.getElementById("davinciCSSForm");
-    var inputs = paletteForm.querySelectorAll("input, select");
-
-    let themeValues = {}
-    themeValues['id'] = Math.floor(Math.random() * (Number.MAX_SAFE_INTEGER - 100)) + 100;
-    themeValues['label'] = themeNameInput.value;
-    inputs.forEach(input => {
-      if (input.id !== "example-themes") {
-        themeValues[input.id] = input.value
-      }
-    });
-
-    saveCustomThemeToLocalStorage(themeValues)
   });
 
   // Create event handlers for form controls
@@ -87,31 +54,11 @@ const initializeExtension = function () {
   // from local storage 
   chrome.storage.sync.get(['davinciCSS'], function (items) {
     if (Object.keys(items).length === 0) {
-      loadThemeSettings(1);
+      loadThemeSettings("pingidentity");
     } else {
       applyCSSValuesFromLocalStorage(items.davinciCSS);
     }
   });
-}
-
-const saveCustomThemeToLocalStorage = function (customTheme) {
-  // Retrieve the current themes in local storage
-  chrome.storage.sync.get(['customThemes'], function (items) {
-    let customCSS = [];
-    if (Object.keys(items).length === 0) {
-      console.log("no items exist");
-    } else {
-      customCSS.push(items.customThemes);
-      console.table(items);
-    }
-    customCSS.push(customTheme);
-    // // Update local storage with new theme
-    chrome.storage.sync.set({ 'customThemes': customCSS }, function () {
-      console.log('Settings saved');
-    });
-
-  });
-
 }
 
 /**
@@ -188,12 +135,11 @@ const buildSelectOptions = function (element, options, shouldSort = false) {
 
 /**
  * Function to load the CSS settings for a select item them
- * @param {integer} selectedValue - select dropdown value
+ * @param {string} selectedValue - select dropdown value
  */
 const loadThemeSettings = function (selectedValue) {
   console.log("loadThemeSettings", selectedValue);
   const selectedTheme = exampleThemes.find(theme => theme.value === selectedValue);
-  console.log(selectedTheme);
   setCSSFormFields(selectedTheme);
 }
 
@@ -217,7 +163,13 @@ const setCSSFormFields = function (themeCSS) {
  * @param {string} id - The ID of the HTML element
  */
 const getFormValue = function (id) {
-  return document.getElementById(id).value;
+  let elementValue;
+  try {
+    elementValue = document.getElementById(id).value;
+  } catch (error) {
+    console.error("Unknown element", id);
+  }
+  return elementValue;
 }
 
 

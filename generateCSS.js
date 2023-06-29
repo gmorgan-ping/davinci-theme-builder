@@ -10,7 +10,7 @@ const generateCSS = function () {
     * COMPANY LOGO
     *********************************************************/
     --company-logo-img-url: url("${getFormValue("company-logo-img-url")}");
-    --company-logo-height: ${getFormValue("company-logo-height")}px;
+    --company-logo-max-height: ${getFormValue("company-logo-max-height")}px;
 
     /********************************************************
     * PAGE BACKGROUND 
@@ -73,6 +73,8 @@ const generateCSS = function () {
     --bs-body-color: rgb(var(--text-color-main)) !important;
     --bs-danger-rgb: var(--text-color-error);
   }
+
+  ${getFormValue("form-position")}
   `
   return overrideCSS + baseCSS
 }
