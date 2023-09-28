@@ -200,6 +200,11 @@ const setElementValue = function (id, value) {
   }
 }
 
+const getPositionCSS = (position, offset) => {
+  let positionCSS = ".bg-light>div{left: 300px;position:fixed;}"
+  return positionCSS
+}
+
 /**
  * Converts a hex color value to RGB
  * This method is used as the color form controls return a hex value

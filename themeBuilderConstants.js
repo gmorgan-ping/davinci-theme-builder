@@ -1,41 +1,39 @@
 const webSafeFonts = [
   { value: "Helvetica", label: "Helvetica (sans-serif)" },
-  { value: "Arial", label: "Arial (sans-serif)" },
+  { value: "'Arial', 'sans-serif'", label: "Arial (sans-serif)" },
   { value: "Arial Black", label: "Arial Black(sans-serif)" },
-  { value: "Verdana", label: "Verdana (sans-serif)" },
-  { value: "Tahoma", label: "Tahoma (sans-serif)" },
-  { value: "Trebuchet MS", label: "Trebuchet MS (sans-serif)" },
+  { value: "'Verdana', 'sans-serif'", label: "Verdana (sans-serif)" },
+  { value: "'Tahoma', 'sans-serif'", label: "Tahoma (sans-serif)" },
+  { value: "'Trebuchet MS', 'sans-serif'", label: "Trebuchet MS (sans-serif)" },
   { value: "Impact", label: "Impact (sans-serif)" },
   { value: "Gill Sans", label: "Gill Sans (sans-serif)" },
-  { value: "Times New Roman", label: "Times New Roman (serif)" },
+  { value: "'Times New Roman', 'serif'", label: "Times New Roman (serif)" },
   { value: "Georgia", label: "Georgia (serif)" },
   { value: "Palatino", label: "Palatino (serif)" },
   { value: "Baskerville", label: "Baskerville (serif)" },
   { value: "Andale Mono", label: "Andale Mono (monospace)" },
-  { value: "Courier", label: "Courier (monospace)" },
+  { value: "'Courier New', 'monospace'", label: "Courier (monospace)" },
   { value: "Lucida", label: "Lucida (monospace)" },
   { value: "Monaco", label: "Monaco (monospace)" },
   { value: "Bradley Hand", label: "Bradley Hand (cursive)" },
   { value: "Brush Script MT", label: "Brush Script MT (cursive)" },
   { value: "Comic Sans MS", label: "Comic Sans MS (cursive)" },
   { value: "Luminari", label: "Luminari (fantasy)" },
-  { value: "Montserrat", label: "Montserrat (sans-serif)" },
-  { value: "Garamond", label: "Garamond (serif)" },
-  { value: "Optima", label: "Optima (sans-serif)" },
-  { value: "BlinkMacSystemFont", label: "BlinkMacSystemFont (sans-serif)" },
+  { value: "'Montserrat', 'sans-serif'", label: "Montserrat (sans-serif)" },
+  { value: "'Garamond', 'serif'", label: "Garamond (serif)" },
+  { value: "'Brush Script MT', 'cursive'", label: "Brush Script (cursive)" },
 ]
 
-const formAlignLeft = ".bg-light>div{left: 220px;position:fixed;}";
-const formAlignRight = ".bg-light>div{right: 220px;position:fixed;}"
-const formAlignCenter = "";
+let formAlignLeft = ".bg-light>div{left: 220px;position:fixed;}";
+let formAlignRight = ".bg-light>div{right: 220px;position:fixed;}"
+let formAlignCenter = "";
 
 
 const divFormPositions = [
-  { value: formAlignLeft, label: "Left Aligned" },
-  { value: "", label: "Centered" },
-  { value: formAlignRight, label: "Right Aligned" },
+  { value: "left", label: "Left Aligned" },
+  { value: "center", label: "Centered" },
+  { value: "right", label: "Right Aligned" },
 ]
-
 
 const exampleThemes = [
   {
@@ -45,14 +43,17 @@ const exampleThemes = [
     "company-logo-max-height": "65",
     "card-background-color": "255, 255, 255",
     "background-image-url": "",
-    "body-font-family": "BlinkMacSystemFont",
+    "body-font-family": "'Montserrat', 'sans-serif'",
     "body-font-size": "0.9",
     "text-color-primary": "61, 69, 77",
+    "heading-text-color": "61, 69, 77",
     "text-color-error": "163, 19, 0",
     "button-primary-text-color": "255, 255, 255",
     "button-primary-background-color": "39, 123, 165",
+    "link-button-primary-color": "39, 123, 165",
     "activity-indicator-color": "68, 98, 237",
-    "form-position": formAlignCenter
+    "polling-indicator-color": "68, 98, 237",
+    "form-position": "center"
   },
   {
     "label": "BX Airlines",
@@ -61,14 +62,17 @@ const exampleThemes = [
     "company-logo-max-height": "35",
     "background-image-url": "https://demo.bxindustry.org/airlines/banner.jpg",
     "card-background-color": "255, 255, 255",
-    "body-font-family": "BlinkMacSystemFont",
+    "body-font-family": "'Montserrat', 'sans-serif'",
     "body-font-size": "0.9",
     "text-color-primary": "24, 34, 55",
+    "heading-text-color": "24, 34, 55",
     "text-color-error": "231, 113, 120",
     "button-primary-text-color": "255, 255, 255",
     "button-primary-background-color": "200, 61, 125",
+    "link-button-primary-color": "200, 61, 125",
     "activity-indicator-color": "24, 34, 55",
-    "form-position": formAlignLeft
+    "polling-indicator-color": "24, 34, 55",
+    "form-position": "left"
   },
   {
     "label": "BX Company",
@@ -77,14 +81,17 @@ const exampleThemes = [
     "company-logo-max-height": "35",
     "background-image-url": "https://demo.bxindustry.org/company/banner.png",
     "card-background-color": "255, 255, 255",
-    "body-font-family": "BlinkMacSystemFont",
+    "body-font-family": "'Montserrat', 'sans-serif'",
     "body-font-size": "0.9",
     "text-color-primary": "24, 34, 55",
+    "heading-text-color": "24, 34, 55",
     "text-color-error": "231, 113, 120",
     "button-primary-text-color": "255, 255, 255",
-    "button-primary-background-color": "0,42,236",
-    "activity-indicator-color": "152,77,247",
-    "form-position": formAlignCenter
+    "button-primary-background-color": "0, 42, 236",
+    "link-button-primary-color": "0, 42, 236",
+    "activity-indicator-color": "152, 77, 247",
+    "polling-indicator-color": "152, 77, 247",
+    "form-position": "center"
   },
   {
     "label": "BX Eats",
@@ -93,14 +100,17 @@ const exampleThemes = [
     "company-logo-max-height": "35",
     "background-image-url": "https://demo.bxindustry.org/eats/banner.jpg",
     "card-background-color": "255, 255, 255",
-    "body-font-family": "BlinkMacSystemFont",
+    "body-font-family": "'Montserrat', 'sans-serif'",
     "body-font-size": "0.9",
     "text-color-primary": "24, 34, 55",
+    "heading-text-color": "24, 34, 55",
     "text-color-error": "226, 91, 97",
     "button-primary-text-color": "255, 255, 255",
-    "button-primary-background-color": "51,182,103",
+    "button-primary-background-color": "51, 182, 103",
+    "link-button-primary-color": "51, 182, 103",
     "activity-indicator-color": "24, 34, 55",
-    "form-position": formAlignCenter
+    "polling-indicator-color": "24, 34, 55",
+    "form-position": "center"
   },
   {
     "label": "BX Education",
@@ -109,14 +119,17 @@ const exampleThemes = [
     "company-logo-max-height": "35",
     "background-image-url": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1746&q=80",
     "card-background-color": "255, 255, 255",
-    "body-font-family": "BlinkMacSystemFont",
+    "body-font-family": "'Montserrat', 'sans-serif'",
     "body-font-size": "0.9",
     "text-color-primary": "24, 34, 55",
+    "heading-text-color": "24, 34, 55",
     "text-color-error": "226, 91, 97",
     "button-primary-text-color": "255, 255, 255",
     "button-primary-background-color": "76, 107, 247",
+    "link-button-primary-color": "76, 107, 247",
     "activity-indicator-color": "24, 34, 55",
-    "form-position": formAlignRight
+    "polling-indicator-color": "24, 34, 55",
+    "form-position": "right"
   },
   {
     "label": "BX Finance",
@@ -125,14 +138,17 @@ const exampleThemes = [
     "company-logo-max-height": "45",
     "background-image-url": "https://cdn.glitch.global/f3c6cad2-28d5-40dc-bf7f-37a8538c380f/finance.png?v=1687952473955",
     "card-background-color": "255, 255, 255",
-    "body-font-family": "BlinkMacSystemFont",
+    "body-font-family": "'Montserrat', 'sans-serif'",
     "body-font-size": "0.9",
     "text-color-primary": "24, 34, 55",
+    "heading-text-color": "24, 34, 55",
     "text-color-error": "226, 91, 97",
     "button-primary-text-color": "255, 255, 255",
     "button-primary-background-color": "74, 186, 163",
+    "link-button-primary-color": "74, 186, 163",
     "activity-indicator-color": "24, 34, 55",
-    "form-position": formAlignLeft
+    "polling-indicator-color": "24, 34, 55",
+    "form-position": "left"
   },
   {
     "label": "BX Government",
@@ -141,14 +157,17 @@ const exampleThemes = [
     "company-logo-max-height": "40",
     "background-image-url": "https://demo.bxindustry.org/government/banner.jpg",
     "card-background-color": "255, 255, 255",
-    "body-font-family": "BlinkMacSystemFont",
+    "body-font-family": "'Montserrat', 'sans-serif'",
     "body-font-size": "0.9",
     "text-color-primary": "33, 37, 41",
+    "heading-text-color": "33, 37, 41",
     "text-color-error": "226, 91, 101",
     "button-primary-text-color": "255, 255, 255",
     "button-primary-background-color": "207, 140, 26",
+    "link-button-primary-color": "207, 140, 26",
     "activity-indicator-color": "33, 37, 41",
-    "form-position": formAlignCenter
+    "polling-indicator-color": "33, 37, 41",
+    "form-position": "center"
   },
   {
     "label": "BX Health",
@@ -157,14 +176,17 @@ const exampleThemes = [
     "company-logo-max-height": "40",
     "background-image-url": "https://demo.bxindustry.org/health/banner.jpg",
     "card-background-color": "255, 255, 255",
-    "body-font-family": "BlinkMacSystemFont",
+    "body-font-family": "'Montserrat', 'sans-serif'",
     "body-font-size": "0.9",
     "text-color-primary": "33, 37, 41",
+    "heading-text-color": "33, 37, 41",
     "text-color-error": "226, 91, 101",
     "button-primary-text-color": "255, 255, 255",
     "button-primary-background-color": "51, 40, 66",
-    "activity-indicator-color": "223,95,79",
-    "form-position": formAlignLeft
+    "link-button-primary-color": "51, 40, 66",
+    "activity-indicator-color": "223, 95, 79",
+    "polling-indicator-color": "223, 95, 79",
+    "form-position": "left"
   },
   {
     "label": "BX Hotels",
@@ -173,14 +195,17 @@ const exampleThemes = [
     "company-logo-max-height": "60",
     "background-image-url": "https://demo.bxindustry.org/hotels/banner.jpg",
     "card-background-color": "255, 255, 255",
-    "body-font-family": "Garamond",
+    "body-font-family": "'Garamond', 'serif'",
     "body-font-size": "1.0",
-    "text-color-primary": "33,37,41",
+    "text-color-primary": "33 37, 41",
+    "heading-text-color": "33, 37, 41",
     "text-color-error": "226, 91, 101",
     "button-primary-text-color": "255, 255, 255",
     "button-primary-background-color": "180, 151, 49",
+    "link-button-primary-color": "180, 151, 49",
     "activity-indicator-color": "9, 21, 43",
-    "form-position": formAlignLeft
+    "polling-indicator-color": "9, 21, 43",
+    "form-position": "left"
   },
   {
     "label": "BX Insurance",
@@ -189,14 +214,17 @@ const exampleThemes = [
     "company-logo-max-height": "35",
     "background-image-url": "https://demo.bxindustry.org/insurance/banner.jpg",
     "card-background-color": "255, 255, 255",
-    "body-font-family": "BlinkMacSystemFont",
+    "body-font-family": "'Montserrat', 'sans-serif'",
     "body-font-size": ".9",
     "text-color-primary": "24, 34, 55",
+    "heading-text-color": "24, 34, 55",
     "text-color-error": "226, 91, 101",
     "button-primary-text-color": "255, 255, 255",
     "button-primary-background-color": "243, 89, 17",
+    "link-button-primary-color": "243, 89, 17",
     "activity-indicator-color": "24, 34, 55",
-    "form-position": formAlignLeft
+    "polling-indicator-color": "9, 21, 43",
+    "form-position": "left"
   },
   {
     "label": "BX Manufacturing",
@@ -205,14 +233,17 @@ const exampleThemes = [
     "company-logo-max-height": "40",
     "background-image-url": "https://demo.bxindustry.org/manufacturing/banner.jpg",
     "card-background-color": "255, 255, 255",
-    "body-font-family": "BlinkMacSystemFont",
+    "body-font-family": "'Montserrat', 'sans-serif'",
     "body-font-size": "1.0",
     "text-color-primary": "24, 34, 55",
+    "heading-text-color": "24, 34, 55",
     "text-color-error": "226, 91, 101",
     "button-primary-text-color": "24, 34, 55",
-    "button-primary-background-color": "241 ,203, 0",
+    "button-primary-background-color": "241, 203, 0",
+    "link-button-primary-color": "241, 203, 0",
     "activity-indicator-color": "24, 34, 55",
-    "form-position": formAlignRight
+    "polling-indicator-color": "24, 34, 55",
+    "form-position": "right"
   },
   {
     "label": "BX Pharmacy",
@@ -221,14 +252,17 @@ const exampleThemes = [
     "company-logo-max-height": "40",
     "background-image-url": "https://demo.bxindustry.org/pharmacy/banner.jpg",
     "card-background-color": "255, 255, 255",
-    "body-font-family": "BlinkMacSystemFont",
+    "body-font-family": "'Montserrat', 'sans-serif'",
     "body-font-size": "1.0",
     "text-color-primary": "24, 34, 55",
+    "heading-text-color": "24, 34, 55",
     "text-color-error": "226, 91, 101",
     "button-primary-text-color": "254, 254, 254",
-    "button-primary-background-color": "38,189,144",
+    "button-primary-background-color": "38, 189, 144",
+    "link-button-primary-color": "38, 189, 144",
     "activity-indicator-color": "24, 34, 55",
-    "form-position": formAlignLeft
+    "polling-indicator-color": "24, 34, 55",
+    "form-position": "left"
   },
   {
     "label": "BX Realty",
@@ -237,14 +271,17 @@ const exampleThemes = [
     "company-logo-max-height": "30",
     "background-image-url": "https://demo.bxindustry.org/realty/banner.jpg",
     "card-background-color": "255, 255, 255",
-    "body-font-family": "BlinkMacSystemFont",
+    "body-font-family": "'Montserrat', 'sans-serif'",
     "body-font-size": "1.0",
     "text-color-primary": "24, 34, 55",
+    "heading-text-color": "24, 34, 55",
     "text-color-error": "226, 91, 101",
     "button-primary-text-color": "254, 254, 254",
     "button-primary-background-color": "31, 153, 211",
+    "link-button-primary-color": "31, 153, 211",
     "activity-indicator-color": "24, 34, 55",
-    "form-position": formAlignLeft
+    "polling-indicator-color": "24, 34, 55",
+    "form-position": "left"
   },
   {
     "label": "BX Retail",
@@ -253,14 +290,17 @@ const exampleThemes = [
     "company-logo-max-height": "30",
     "background-image-url": "https://demo.bxindustry.org/retail/home-hero-office-bg.png",
     "card-background-color": "255, 255, 255",
-    "body-font-family": "BlinkMacSystemFont",
+    "body-font-family": "'Montserrat', 'sans-serif'",
     "body-font-size": "1.0",
     "text-color-primary": "24, 34, 55",
+    "heading-text-color": "24, 34, 55",
     "text-color-error": "226, 91, 101",
     "button-primary-text-color": "254, 254, 254",
     "button-primary-background-color": "31, 153, 211",
-    "activity-indicator-color": "248,199,70",
-    "form-position": formAlignCenter
+    "link-button-primary-color": "31, 153, 211",
+    "activity-indicator-color": "248, 199, 70",
+    "polling-indicator-color": "248, 199, 70",
+    "form-position": "center"
   },
   {
     "label": "BX Sports",
@@ -269,14 +309,17 @@ const exampleThemes = [
     "company-logo-max-height": "30",
     "background-image-url": "https://demo.bxindustry.org/sports/banner.jpg",
     "card-background-color": "255, 255, 255",
-    "body-font-family": "BlinkMacSystemFont",
+    "body-font-family": "'Montserrat', 'sans-serif'",
     "body-font-size": "1.0",
     "text-color-primary": "24, 34, 55",
+    "heading-text-color": "24, 34, 55",
     "text-color-error": "226, 91, 101",
     "button-primary-text-color": "254, 254, 254",
-    "button-primary-background-color": "238,39,27",
+    "button-primary-background-color": "238, 39, 27",
+    "link-button-primary-color": "238, 39, 27",
     "activity-indicator-color": "24, 34, 55",
-    "form-position": formAlignCenter
+    "polling-indicator-color": "24, 34, 55",
+    "form-position": "center"
   },
   {
     "label": "BX Volunteer",
@@ -285,14 +328,17 @@ const exampleThemes = [
     "company-logo-max-height": "50",
     "background-image-url": "https://cdn.glitch.global/f3c6cad2-28d5-40dc-bf7f-37a8538c380f/bx-volunteer.png?v=1687812400334",
     "card-background-color": "255, 255, 255",
-    "body-font-family": "Garamond",
+    "body-font-family": "'Garamond', 'serif'",
     "body-font-size": "1.1",
     "text-color-primary": "24, 34, 55",
+    "heading-text-color": "24, 34, 55",
     "text-color-error": "226, 91, 101",
     "button-primary-text-color": "254, 254, 254",
     "button-primary-background-color": "60, 113, 87",
-    "activity-indicator-color": "147,184,164",
-    "form-position": formAlignLeft
+    "link-button-primary-color": "60, 113, 87",
+    "activity-indicator-color": "147, 184, 164",
+    "polling-indicator-color": "147, 184, 164",
+    "form-position": "left"
   },
   {
     "label": "Amazon",
@@ -301,14 +347,17 @@ const exampleThemes = [
     "company-logo-max-height": "80",
     "background-image-url": "https://images.unsplash.com/photo-1633174524827-db00a6b7bc74?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1792&q=80",
     "card-background-color": "255, 255, 255",
-    "body-font-family": "BlinkMacSystemFont",
+    "body-font-family": "'Montserrat', 'sans-serif'",
     "body-font-size": "0.85",
     "text-color-primary": "17, 17, 17",
+    "heading-text-color": "17, 17, 17",
     "text-color-error": "200, 33, 17",
     "button-primary-text-color": "17, 17, 17",
     "button-primary-background-color": "241, 197, 90",
-    "activity-indicator-color": "236,142,15",
-    "form-position": formAlignCenter
+    "link-button-primary-color": "241, 197, 90",
+    "activity-indicator-color": "236, 142, 15",
+    "polling-indicator-color": "236, 142, 15",
+    "form-position": "center"
   },
   {
     "label": "Boeing",
@@ -320,11 +369,14 @@ const exampleThemes = [
     "body-font-family": "Helvetica",
     "body-font-size": "0.85",
     "text-color-primary": "95, 107, 114",
+    "heading-text-color": "95, 107, 114",
     "text-color-error": "223, 28, 37",
     "button-primary-text-color": "255, 255, 255",
     "button-primary-background-color": "1, 151, 220",
+    "link-button-primary-color": "1, 151, 220",
     "activity-indicator-color": "57, 73, 87",
-    "form-position": formAlignRight
+    "polling-indicator-color": "57, 73, 87",
+    "form-position": "right"
   },
   {
     "label": "Dixie Lee",
@@ -336,11 +388,14 @@ const exampleThemes = [
     "body-font-family": "Palatino",
     "body-font-size": "1",
     "text-color-primary": "17, 17, 17",
+    "heading-text-color": "17, 17, 17",
     "text-color-error": "200, 33, 17",
     "button-primary-text-color": "255, 255, 255",
     "button-primary-background-color": "238, 43, 46",
-    "activity-indicator-color": "236,142,15",
-    "form-position": formAlignCenter
+    "link-button-primary-color": "238, 43, 46",
+    "activity-indicator-color": "236,1 42, 15",
+    "polling-indicator-color": "236,1 42, 15",
+    "form-position": "center"
   },
   {
     "label": "FedEx",
@@ -352,11 +407,14 @@ const exampleThemes = [
     "body-font-family": "Arial Black",
     "body-font-size": "0.85",
     "text-color-primary": "17, 17, 17",
+    "heading-text-color": "17, 17, 17",
     "text-color-error": "223, 28, 37",
     "button-primary-text-color": "255, 255, 255",
     "button-primary-background-color": "70, 40, 150",
+    "link-button-primary-color": "70, 40, 150",
     "activity-indicator-color": "255, 122, 9",
-    "form-position": formAlignLeft
+    "polling-indicator-color": "255, 122, 9",
+    "form-position": "left"
   },
   {
     "label": "McDonalds",
@@ -368,11 +426,14 @@ const exampleThemes = [
     "body-font-family": "Trebuchet MS",
     "body-font-size": "0.85",
     "text-color-primary": "17, 17, 17",
+    "heading-text-color": "17, 17, 17",
     "text-color-error": "223, 28, 37",
     "button-primary-text-color": "255, 255, 255",
     "button-primary-background-color": "183, 1, 9",
+    "link-button-primary-color": "183, 1, 9",
     "activity-indicator-color": "255, 183, 0",
-    "form-position": formAlignLeft
+    "polling-indicator-color": "255, 183, 0",
+    "form-position": "left"
   },
   {
     "label": "Nova Scotia Tourism",
@@ -381,14 +442,17 @@ const exampleThemes = [
     "company-logo-max-height": "60",
     "background-image-url": "https://d3qvqlc701gzhm.cloudfront.net/full/73c0591c106bf913e535e6322effbe2118b52960c480b3fd7f7fd4b57e5f98e4.jpg",
     "card-background-color": "255, 255, 255",
-    "body-font-family": "Verdana",
+    "body-font-family": "'Verdana', 'sans-serif'",
     "body-font-size": "0.85",
     "text-color-primary": "64, 64, 64",
+    "heading-text-color": "64, 64, 64",
     "text-color-error": "223, 28, 37",
     "button-primary-text-color": "255, 255, 255",
     "button-primary-background-color": "0, 108, 183",
+    "link-button-primary-color": "0, 108, 183",
     "activity-indicator-color": "255, 194, 33",
-    "form-position": formAlignCenter
+    "polling-indicator-color": "255, 194, 33",
+    "form-position": "center"
   },
   {
     "label": "Serengeti Quest",
@@ -397,14 +461,17 @@ const exampleThemes = [
     "company-logo-max-height": "130",
     "background-image-url": "https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1736&q=80",
     "card-background-color": "255, 255, 255",
-    "body-font-family": "Verdana",
+    "body-font-family": "'Verdana', 'sans-serif'",
     "body-font-size": "0.85",
     "text-color-primary": "17, 17, 17",
+    "heading-text-color": "17, 17, 17",
     "text-color-error": "223, 28, 37",
     "button-primary-text-color": "255, 255, 255",
     "button-primary-background-color": "10, 77, 21",
+    "link-button-primary-color": "10, 77, 21",
     "activity-indicator-color": "249, 165, 38",
-    "form-position": formAlignRight
+    "polling-indicator-color": "249, 165, 38",
+    "form-position": "right"
   },
   {
     "label": "Starbucks",
@@ -416,11 +483,14 @@ const exampleThemes = [
     "body-font-family": "Helvetica",
     "body-font-size": "0.85",
     "text-color-primary": "63, 63, 63",
+    "heading-text-color": "63, 63, 63",
     "text-color-error": "214, 44, 31",
     "button-primary-text-color": "255, 255, 255",
     "button-primary-background-color": "0, 130, 72",
+    "link-button-primary-color": "0, 130, 72",
     "activity-indicator-color": "234, 199, 133",
-    "form-position": formAlignCenter
+    "polling-indicator-color": "234, 199, 133",
+    "form-position": "center"
   },
   {
     "label": "Tesla",
@@ -432,11 +502,14 @@ const exampleThemes = [
     "body-font-family": "Arial",
     "body-font-size": "0.85",
     "text-color-primary": "17, 17, 17",
+    "heading-text-color": "17, 17, 17",
     "text-color-error": "223, 28, 37",
     "button-primary-text-color": "255, 255, 255",
     "button-primary-background-color": "62, 106, 255",
+    "link-button-primary-color": "62, 106, 255",
     "activity-indicator-color": "255, 194, 33",
-    "form-position": formAlignRight
+    "polling-indicator-color": "255, 194, 33",
+    "form-position": "right"
   },
 ]
 
@@ -450,7 +523,7 @@ const baseCSS = `
 .companyLogo {
   content: var(--company-logo-img-url) !important;
   height: var(--company-logo-max-height) !important;
-  width: auto !important;
+  width: fit-content !important;
 }
 
 /*  BACKGROUND IMAGE  */
@@ -458,6 +531,11 @@ div.bg-light {
   background-image:       var(--background-image-url);
   background-size:        cover;
   background-repeat:      no-repeat;
+}
+
+/*  HEADING TEXT  */
+h1, h2, h3, h4 {
+  color: rgb(var(--heading-text-color)) !important;
 }
 
 /*  BODY FONT & COLOR  */
@@ -499,6 +577,12 @@ p.text-muted {
   box-shadow: 0 0 0 0.25rem rgba(var(--button-primary-background-color), 0.25) !important;
 }
 
+/* BORDERS */
+.border-info {
+  --bs-border-opacity: 1;
+  border-color: rgba(var(--button-primary-background-color), var(--bs-border-opacity)) !important;
+}
+
 /*  PRIMARY BUTTON  */
 .btn-primary {
   /*  font color  */
@@ -531,25 +615,25 @@ p.text-muted {
 /*  LINK BUTTON  */
 .btn-link {
   /*  button font color  */
-  --bs-btn-color: rgb(var(--button-primary-background-color)) !important;
+  --bs-btn-color: rgb(var(--link-button-primary-color)) !important;
   /*  button font color when active  */
-  --bs-btn-active-color: rgba(var(--button-primary-background-color), var(--button-active-alpha)) !important;
+  --bs-btn-active-color: rgba(var(--link-button-primary-color), var(--button-active-alpha)) !important;
   /*  button font color when hovering  */
-  --bs-btn-hover-color: rgba(var(--button-primary-background-color), var(--button-hover-alpha)) !important;
+  --bs-btn-hover-color: rgba(var(--link-button-primary-color), var(--button-hover-alpha)) !important;
   /*  button font color when disabled  */
-  --bs-btn-disabled-color: rgba(var(--button-primary-background-color), var(--button-disabled-alpha)) !important;
-  color: rgb(var(--button-primary-background-color)) !important;
+  --bs-btn-disabled-color: rgba(var(--link-button-primary-color), var(--button-disabled-alpha)) !important;
+  color: rgb(var(--link-button-primary-color)) !important;
 }
 
 /*  POLLING INDICATORS  */
 .css-11k6vsm,
 .css-17zi2ag,
 .css-139roxj {
-  width: 20px;
-  height: 20px;
-  animation-duration: 0.75s;
+  /* width: 20px; */
+  /* height: 20px; */
+  /* animation-duration: 0.75s; */
   /*  circle background color  */
-  background-color: var(--activity-indicator-color) !important;
+  background-color: var(--polling-indicator-color) !important;
 }
 
 /*  BUTTON ACTIVITY INDICATOR  */

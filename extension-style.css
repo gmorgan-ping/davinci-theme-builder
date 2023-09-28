@@ -14,7 +14,7 @@ body {
 
 .wrapperDiv {
   background-color: var(--background-color);
-  width: 670px;
+  width: 700px;
   padding: 10px;
   border-radius: 5px;
   border: 2px solid var(--border-color);

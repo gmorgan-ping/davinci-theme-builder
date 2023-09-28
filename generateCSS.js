@@ -35,6 +35,9 @@ const generateCSS = function () {
     /*  PRIMARY FONT COLOR (RGB) */
     --text-color-primary: ${hexToRgb(getFormValue("text-color-primary"))};
 
+    /* HEADING FONT COLR (RBG) */
+    --heading-text-color: ${hexToRgb(getFormValue("heading-text-color"))};
+    
     /*  MUTED TEXT ALPHA  */
     --text-color-muted-apha: 0.75;
 
@@ -48,8 +51,11 @@ const generateCSS = function () {
     /*  BUTTON FONT COLOR  */
     --button-primary-text-color: rgb(${hexToRgb(getFormValue("button-primary-text-color"))});
 
-    /*  BUTTON BACKGROUND COLOR & LINK BUTTON FONT COLOR (RGB)  */
+    /*  BUTTON BACKGROUND COLOR (RGB)  */
     --button-primary-background-color: ${hexToRgb(getFormValue("button-primary-background-color"))};
+    
+    /* LINK BUTTON FONT COLOR (RGB)  */
+    --link-button-primary-color: ${hexToRgb(getFormValue("link-button-primary-color"))};
 
     /*  BUTTON HOVER ALPHA  */
     --button-hover-alpha: 0.70;
@@ -66,6 +72,8 @@ const generateCSS = function () {
 
     --activity-indicator-color: rgb(${hexToRgb(getFormValue("activity-indicator-color"))});
 
+    --polling-indicator-color: rgb(${hexToRgb(getFormValue("polling-indicator-color"))});
+
     /********************************************************
     * APPLYING TEXT COLOR - DO NOT CHANGE
     *********************************************************/
@@ -74,7 +82,7 @@ const generateCSS = function () {
     --bs-danger-rgb: var(--text-color-error);
   }
 
-  ${getFormValue("form-position")}
+  ${getPositionCSS("test", "test")};
   `
   return overrideCSS + baseCSS
 }

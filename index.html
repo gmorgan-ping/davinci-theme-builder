@@ -13,7 +13,7 @@
   <div class="wrapperDiv">
     <div style="display:flex; align-items: center;">
       <img class="flow">
-      <h2 style="color:whitesmoke; display:inline-block; margin-left:10px;">DaVinci Flow Theme Builder</h2>
+      <h2 style="color:whitesmoke; display:inline-block; margin-left:20px;">DaVinci Flow Theme Builder</h2>
     </div>
 
     <div id="palettePanelDiv">
@@ -27,7 +27,7 @@
           <tr>
             <td><label>Logo URL</label></td>
             <td width="40%"><input type="text" id="company-logo-img-url" class="palette-input" /></td>
-            <td><label>Logo Height(px)</label></td>
+            <td><label>Logo Height (px)</label></td>
             <td><input type="text" id="company-logo-max-height" class="palette-input" /></td>
           </tr>
           <tr>
@@ -39,26 +39,42 @@
           <tr>
             <td><label>Bg Image URL</label></td>
             <td><input type="text" id="background-image-url" class="palette-input" /></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+
             <td><label>Form Position</label></td>
             <td><select id="form-position" style="width:100%"></select></td>
+            <td><label>Form Offset (px)</label></td>
+            <td><input type="text" id="form-offset" class="palette-input" /></td>
+          </tr>
+        </table>
+        <h3 style="text-align: center; margin: 5px">Theme Colors</h3>
+        <table class="css-table" style="width: 100%">
+          <tr>
+            <td><label>Primary Text</label></td>
+            <td><input type="color" id="text-color-primary" title="Primary Text Color" /></td>
+            <td><label>Headings</label></td>
+            <td><input type="color" id="heading-text-color" title="H1-H4 Heading Color" /></td>
+            <td><label>Error Text</label></td>
+            <td><input type="color" id="text-color-error" title="Error Message Text Color" /></td>
           </tr>
           <tr>
-            <td><label>Primary Text Color</label></td>
-            <td><input type="color" id="text-color-primary" /></td>
-            <td><label>Error Text Color</label></td>
-            <td><input type="color" id="text-color-error" /></td>
-          </tr>
-          <tr>
-            <td><label>Btn Bg Color</label></td>
-            <td><input type="color" id="button-primary-background-color" /></td>
-            <td><label>Btn Text Color</label></td>
-            <td><input type="color" id="button-primary-text-color" /></td>
+            <td><label>Btn Background </label></td>
+            <td><input type="color" id="button-primary-background-color" title="Button Background Color" /></td>
+            <td><label>Btn Text</label></td>
+            <td><input type="color" id="button-primary-text-color" title="Button Text Color" /></td>
+            <td><label>Link Button</label></td>
+            <td><input type="color" id="link-button-primary-color" title="Link Button Text Color" /></td>
           </tr>
           <tr>
             <td><label>Form Bg Color</label></td>
-            <td><input type="color" id="card-background-color" /></td>
-            <td><label>Activity Color</label></td>
-            <td><input type="color" id="activity-indicator-color" /></td>
+            <td><input type="color" id="card-background-color" title="Form Background Color" /></td>
+            <td><label>Activity</label></td>
+            <td><input type="color" id="activity-indicator-color" title="Button Activity Spinner" /></td>
+            <td><label>Polling</label></td>
+            <td><input type="color" id="polling-indicator-color" title="Polling Indicator" /></td>
           </tr>
         </table>
       </form>
