@@ -231,7 +231,7 @@ const exampleThemes = [
     "value": "bx-manufacturing",
     "company-logo-img-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-manufacturing-logo.png?v=1696504876032",
     "company-logo-max-height": "45",
-    "background-image-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-insurance-banner.jpg?v=1696505686705",
+    "background-image-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-manufacturing-banner.jpg?v=1696505738010",
     "card-background-color": "255, 255, 255",
     "body-font-family": "'Montserrat', 'sans-serif'",
     "body-font-size": "1.0",
