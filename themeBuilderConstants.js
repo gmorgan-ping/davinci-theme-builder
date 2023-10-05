@@ -24,15 +24,15 @@ const webSafeFonts = [
   { value: "'Brush Script MT', 'cursive'", label: "Brush Script (cursive)" },
 ]
 
-let formAlignLeft = ".bg-light>div{left: 220px;position:fixed;}";
-let formAlignRight = ".bg-light>div{right: 220px;position:fixed;}"
-let formAlignCenter = "";
+const formAlignLeft = ".bg-light>div{left: 270px;position:fixed;}";
+const formAlignRight = ".bg-light>div{right: 270px;position:fixed;}"
+const formAlignCenter = "";
 
 
 const divFormPositions = [
-  { value: "left", label: "Left Aligned" },
-  { value: "center", label: "Centered" },
-  { value: "right", label: "Right Aligned" },
+  { value: formAlignLeft, label: "Left Aligned" },
+  { value: "", label: "Centered" },
+  { value: formAlignRight, label: "Right Aligned" },
 ]
 
 const exampleThemes = [
@@ -53,14 +53,14 @@ const exampleThemes = [
     "link-button-primary-color": "39, 123, 165",
     "activity-indicator-color": "68, 98, 237",
     "polling-indicator-color": "68, 98, 237",
-    "form-position": "center"
+    "form-position": formAlignCenter
   },
   {
     "label": "BX Airlines",
     "value": "bx-airlines",
-    "company-logo-img-url": "https://demo.bxindustry.org/airlines/auth-dialog-logo.png",
-    "company-logo-max-height": "35",
-    "background-image-url": "https://demo.bxindustry.org/airlines/banner.jpg",
+    "company-logo-img-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-airlines-logo.png?v=1696504874770",
+    "company-logo-max-height": "50",
+    "background-image-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-airlines-banner.jpg?v=1696505160142",
     "card-background-color": "255, 255, 255",
     "body-font-family": "'Montserrat', 'sans-serif'",
     "body-font-size": "0.9",
@@ -72,14 +72,14 @@ const exampleThemes = [
     "link-button-primary-color": "200, 61, 125",
     "activity-indicator-color": "24, 34, 55",
     "polling-indicator-color": "24, 34, 55",
-    "form-position": "left"
+    "form-position": formAlignLeft
   },
   {
     "label": "BX Company",
     "value": "bx-company",
-    "company-logo-img-url": "https://demo.bxindustry.org/company/auth-dialog-logo.png",
-    "company-logo-max-height": "35",
-    "background-image-url": "https://demo.bxindustry.org/company/banner.png",
+    "company-logo-img-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-company-logo.png?v=1696504874955",
+    "company-logo-max-height": "50",
+    "background-image-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-company-banner.png?v=1696505250582",
     "card-background-color": "255, 255, 255",
     "body-font-family": "'Montserrat', 'sans-serif'",
     "body-font-size": "0.9",
@@ -91,14 +91,14 @@ const exampleThemes = [
     "link-button-primary-color": "0, 42, 236",
     "activity-indicator-color": "152, 77, 247",
     "polling-indicator-color": "152, 77, 247",
-    "form-position": "center"
+    "form-position": formAlignCenter
   },
   {
     "label": "BX Eats",
     "value": "bx-eats",
-    "company-logo-img-url": "https://demo.bxindustry.org/eats/auth-dialog-logo.png",
-    "company-logo-max-height": "35",
-    "background-image-url": "https://demo.bxindustry.org/eats/banner.jpg",
+    "company-logo-img-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-eats-logo.png?v=1696504875101",
+    "company-logo-max-height": "50",
+    "background-image-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-eats-banner.jpg?v=1696505295451",
     "card-background-color": "255, 255, 255",
     "body-font-family": "'Montserrat', 'sans-serif'",
     "body-font-size": "0.9",
@@ -110,14 +110,14 @@ const exampleThemes = [
     "link-button-primary-color": "51, 182, 103",
     "activity-indicator-color": "24, 34, 55",
     "polling-indicator-color": "24, 34, 55",
-    "form-position": "center"
+    "form-position": formAlignCenter
   },
   {
     "label": "BX Education",
     "value": "bx-education",
-    "company-logo-img-url": "https://demo.bxindustry.org/education/auth-dialog-logo.png",
-    "company-logo-max-height": "35",
-    "background-image-url": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1746&q=80",
+    "company-logo-img-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-education-logo.png?v=1696504875294",
+    "company-logo-max-height": "50",
+    "background-image-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-education-banner.png?v=1696505388297",
     "card-background-color": "255, 255, 255",
     "body-font-family": "'Montserrat', 'sans-serif'",
     "body-font-size": "0.9",
@@ -129,14 +129,14 @@ const exampleThemes = [
     "link-button-primary-color": "76, 107, 247",
     "activity-indicator-color": "24, 34, 55",
     "polling-indicator-color": "24, 34, 55",
-    "form-position": "right"
+    "form-position": formAlignRight
   },
   {
     "label": "BX Finance",
     "value": "bx-finance",
-    "company-logo-img-url": "https://demo.bxindustry.org/finance/logo.svg",
+    "company-logo-img-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-finance-logo.png?v=1696504875411",
     "company-logo-max-height": "45",
-    "background-image-url": "https://cdn.glitch.global/f3c6cad2-28d5-40dc-bf7f-37a8538c380f/finance.png?v=1687952473955",
+    "background-image-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-finance-banner.png?v=1696505434663",
     "card-background-color": "255, 255, 255",
     "body-font-family": "'Montserrat', 'sans-serif'",
     "body-font-size": "0.9",
@@ -148,14 +148,14 @@ const exampleThemes = [
     "link-button-primary-color": "74, 186, 163",
     "activity-indicator-color": "24, 34, 55",
     "polling-indicator-color": "24, 34, 55",
-    "form-position": "left"
+    "form-position": formAlignLeft
   },
   {
     "label": "BX Government",
     "value": "bx-government",
-    "company-logo-img-url": "https://demo.bxindustry.org/government/auth-dialog-logo.png",
+    "company-logo-img-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-government-logo.png?v=1696504875595",
     "company-logo-max-height": "40",
-    "background-image-url": "https://demo.bxindustry.org/government/banner.jpg",
+    "background-image-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-government-banner.jpg?v=1696505486811",
     "card-background-color": "255, 255, 255",
     "body-font-family": "'Montserrat', 'sans-serif'",
     "body-font-size": "0.9",
@@ -167,14 +167,14 @@ const exampleThemes = [
     "link-button-primary-color": "207, 140, 26",
     "activity-indicator-color": "33, 37, 41",
     "polling-indicator-color": "33, 37, 41",
-    "form-position": "center"
+    "form-position": formAlignCenter
   },
   {
     "label": "BX Health",
     "value": "bx-health",
-    "company-logo-img-url": "https://demo.bxindustry.org/health/logo.svg",
-    "company-logo-max-height": "40",
-    "background-image-url": "https://demo.bxindustry.org/health/banner.jpg",
+    "company-logo-img-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-health-logo.png?v=1696505537337",
+    "company-logo-max-height": "30",
+    "background-image-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-health-banner.jpg?v=1696505573230",
     "card-background-color": "255, 255, 255",
     "body-font-family": "'Montserrat', 'sans-serif'",
     "body-font-size": "0.9",
@@ -186,14 +186,14 @@ const exampleThemes = [
     "link-button-primary-color": "51, 40, 66",
     "activity-indicator-color": "223, 95, 79",
     "polling-indicator-color": "223, 95, 79",
-    "form-position": "left"
+    "form-position": formAlignLeft
   },
   {
     "label": "BX Hotels",
     "value": "bx-hotels",
-    "company-logo-img-url": "https://demo.bxindustry.org/hotels/auth-dialog-logo.png",
-    "company-logo-max-height": "60",
-    "background-image-url": "https://demo.bxindustry.org/hotels/banner.jpg",
+    "company-logo-img-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-hotels-logo.png?v=1696510725776",
+    "company-logo-max-height": "50",
+    "background-image-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-hotels-banner.jpg?v=1696505641896",
     "card-background-color": "255, 255, 255",
     "body-font-family": "'Garamond', 'serif'",
     "body-font-size": "1.0",
@@ -205,14 +205,14 @@ const exampleThemes = [
     "link-button-primary-color": "180, 151, 49",
     "activity-indicator-color": "9, 21, 43",
     "polling-indicator-color": "9, 21, 43",
-    "form-position": "left"
+    "form-position": formAlignLeft
   },
   {
     "label": "BX Insurance",
     "value": "bx-insurance",
-    "company-logo-img-url": "https://demo.bxindustry.org/insurance/auth-dialog-logo.png",
-    "company-logo-max-height": "35",
-    "background-image-url": "https://demo.bxindustry.org/insurance/banner.jpg",
+    "company-logo-img-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-insurance-logo.png?v=1696504875890",
+    "company-logo-max-height": "50",
+    "background-image-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-insurance-banner.jpg?v=1696505686705",
     "card-background-color": "255, 255, 255",
     "body-font-family": "'Montserrat', 'sans-serif'",
     "body-font-size": ".9",
@@ -224,14 +224,14 @@ const exampleThemes = [
     "link-button-primary-color": "243, 89, 17",
     "activity-indicator-color": "24, 34, 55",
     "polling-indicator-color": "9, 21, 43",
-    "form-position": "left"
+    "form-position": formAlignLeft
   },
   {
     "label": "BX Manufacturing",
     "value": "bx-manufacturing",
-    "company-logo-img-url": "https://demo.bxindustry.org/manufacturing/auth-dialog-logo.png",
-    "company-logo-max-height": "40",
-    "background-image-url": "https://demo.bxindustry.org/manufacturing/banner.jpg",
+    "company-logo-img-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-manufacturing-logo.png?v=1696504876032",
+    "company-logo-max-height": "45",
+    "background-image-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-insurance-banner.jpg?v=1696505686705",
     "card-background-color": "255, 255, 255",
     "body-font-family": "'Montserrat', 'sans-serif'",
     "body-font-size": "1.0",
@@ -243,14 +243,14 @@ const exampleThemes = [
     "link-button-primary-color": "241, 203, 0",
     "activity-indicator-color": "24, 34, 55",
     "polling-indicator-color": "24, 34, 55",
-    "form-position": "right"
+    "form-position": formAlignRight
   },
   {
     "label": "BX Pharmacy",
     "value": "bx-pharmacy",
-    "company-logo-img-url": "https://demo.bxindustry.org/pharmacy/auth-dialog-logo.png",
-    "company-logo-max-height": "40",
-    "background-image-url": "https://demo.bxindustry.org/pharmacy/banner.jpg",
+    "company-logo-img-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-pharmacy-logo.png?v=1696504876149",
+    "company-logo-max-height": "45",
+    "background-image-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-pharmacy-banner.jpg?v=1696505784861",
     "card-background-color": "255, 255, 255",
     "body-font-family": "'Montserrat', 'sans-serif'",
     "body-font-size": "1.0",
@@ -262,14 +262,14 @@ const exampleThemes = [
     "link-button-primary-color": "38, 189, 144",
     "activity-indicator-color": "24, 34, 55",
     "polling-indicator-color": "24, 34, 55",
-    "form-position": "left"
+    "form-position": formAlignLeft
   },
   {
     "label": "BX Realty",
     "value": "bx-realty",
-    "company-logo-img-url": "https://demo.bxindustry.org/realty/auth-dialog-logo.png",
-    "company-logo-max-height": "30",
-    "background-image-url": "https://demo.bxindustry.org/realty/banner.jpg",
+    "company-logo-img-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-realty-logo.png?v=1696510925611",
+    "company-logo-max-height": "50",
+    "background-image-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-realty-banner.jpg?v=1696505889553",
     "card-background-color": "255, 255, 255",
     "body-font-family": "'Montserrat', 'sans-serif'",
     "body-font-size": "1.0",
@@ -281,14 +281,14 @@ const exampleThemes = [
     "link-button-primary-color": "31, 153, 211",
     "activity-indicator-color": "24, 34, 55",
     "polling-indicator-color": "24, 34, 55",
-    "form-position": "left"
+    "form-position": formAlignLeft
   },
   {
     "label": "BX Retail",
     "value": "bx-retail",
-    "company-logo-img-url": "https://demo.bxindustry.org/retail/auth-dialog-logo.svg",
-    "company-logo-max-height": "30",
-    "background-image-url": "https://demo.bxindustry.org/retail/home-hero-office-bg.png",
+    "company-logo-img-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-retail-logo.png?v=1696504876395",
+    "company-logo-max-height": "50",
+    "background-image-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-retail-banner.png?v=1696506080916",
     "card-background-color": "255, 255, 255",
     "body-font-family": "'Montserrat', 'sans-serif'",
     "body-font-size": "1.0",
@@ -300,16 +300,16 @@ const exampleThemes = [
     "link-button-primary-color": "31, 153, 211",
     "activity-indicator-color": "248, 199, 70",
     "polling-indicator-color": "248, 199, 70",
-    "form-position": "center"
+    "form-position": formAlignCenter
   },
   {
     "label": "BX Sports",
     "value": "bx-sports",
-    "company-logo-img-url": "https://demo.bxindustry.org/sports/auth-dialog-logo.png",
-    "company-logo-max-height": "30",
-    "background-image-url": "https://demo.bxindustry.org/sports/banner.jpg",
+    "company-logo-img-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-sports-logo.png?v=1696504876533",
+    "company-logo-max-height": "50",
+    "background-image-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-sports-banner.jpg?v=1696506130030",
     "card-background-color": "255, 255, 255",
-    "body-font-family": "'Montserrat', 'sans-serif'",
+    "body-font-family": "'Garamond', 'serif'",
     "body-font-size": "1.0",
     "text-color-primary": "24, 34, 55",
     "heading-text-color": "24, 34, 55",
@@ -319,16 +319,16 @@ const exampleThemes = [
     "link-button-primary-color": "238, 39, 27",
     "activity-indicator-color": "24, 34, 55",
     "polling-indicator-color": "24, 34, 55",
-    "form-position": "center"
+    "form-position": formAlignCenter
   },
   {
     "label": "BX Volunteer",
     "value": "bx-volunteer",
-    "company-logo-img-url": "https://demo.bxindustry.org/volunteer/auth-dialog-logo.png",
-    "company-logo-max-height": "50",
-    "background-image-url": "https://cdn.glitch.global/f3c6cad2-28d5-40dc-bf7f-37a8538c380f/bx-volunteer.png?v=1687812400334",
+    "company-logo-img-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-volunteer-logo.png?v=1696504876661",
+    "company-logo-max-height": "45",
+    "background-image-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/bx-volunteer-banner.png?v=1696506187496",
     "card-background-color": "255, 255, 255",
-    "body-font-family": "'Garamond', 'serif'",
+    "body-font-family": "Garamond",
     "body-font-size": "1.1",
     "text-color-primary": "24, 34, 55",
     "heading-text-color": "24, 34, 55",
@@ -338,7 +338,7 @@ const exampleThemes = [
     "link-button-primary-color": "60, 113, 87",
     "activity-indicator-color": "147, 184, 164",
     "polling-indicator-color": "147, 184, 164",
-    "form-position": "left"
+    "form-position": formAlignLeft
   },
   {
     "label": "Amazon",
@@ -354,17 +354,17 @@ const exampleThemes = [
     "text-color-error": "200, 33, 17",
     "button-primary-text-color": "17, 17, 17",
     "button-primary-background-color": "241, 197, 90",
-    "link-button-primary-color": "241, 197, 90",
+    "link-button-primary-color": "17, 17, 17",
     "activity-indicator-color": "236, 142, 15",
     "polling-indicator-color": "236, 142, 15",
-    "form-position": "center"
+    "form-position": formAlignCenter
   },
   {
     "label": "Boeing",
     "value": "boeing",
-    "company-logo-img-url": "https://cdn.glitch.global/5b50c5d3-8d5c-4936-9933-3537d1af98b3/boeing-logo.png?v=1686247576255",
+    "company-logo-img-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/boeing-logo.png?v=1696506757964",
     "company-logo-max-height": "40",
-    "background-image-url": "https://images.unsplash.com/photo-1660682349275-07d8f8439e43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
+    "background-image-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/boeing-banner.png?v=1696506724936",
     "card-background-color": "241, 242, 242",
     "body-font-family": "Helvetica",
     "body-font-size": "0.85",
@@ -376,14 +376,14 @@ const exampleThemes = [
     "link-button-primary-color": "1, 151, 220",
     "activity-indicator-color": "57, 73, 87",
     "polling-indicator-color": "57, 73, 87",
-    "form-position": "right"
+    "form-position": formAlignRight
   },
   {
     "label": "Dixie Lee",
     "value": "dixielee",
-    "company-logo-img-url": "https://cdn.glitch.global/5b50c5d3-8d5c-4936-9933-3537d1af98b3/dixie-lee-logo.png?v=1686315429808",
+    "company-logo-img-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/dixie-lee-logo.png?v=1696506809579",
     "company-logo-max-height": "120",
-    "background-image-url": "https://cdn.glitch.global/5b50c5d3-8d5c-4936-9933-3537d1af98b3/dixie-lee-background.png?v=1686315293072",
+    "background-image-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/dixie-lee-banner.png?v=1696506809376",
     "card-background-color": "255, 255, 255",
     "body-font-family": "Palatino",
     "body-font-size": "1",
@@ -395,14 +395,14 @@ const exampleThemes = [
     "link-button-primary-color": "238, 43, 46",
     "activity-indicator-color": "236,1 42, 15",
     "polling-indicator-color": "236,1 42, 15",
-    "form-position": "center"
+    "form-position": formAlignCenter
   },
   {
     "label": "FedEx",
     "value": "fedex",
-    "company-logo-img-url": "https://cdn.glitch.global/5b50c5d3-8d5c-4936-9933-3537d1af98b3/fedex-logo.png?v=1686225320638",
-    "company-logo-max-height": "100",
-    "background-image-url": "https://cdn.glitch.global/5b50c5d3-8d5c-4936-9933-3537d1af98b3/fedex-background.png?v=1686225995437",
+    "company-logo-img-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/fedex-logo.png?v=1696506662753",
+    "company-logo-max-height": "80",
+    "background-image-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/fedex-banner.png?v=1696506662454",
     "card-background-color": "255, 255, 255",
     "body-font-family": "Arial Black",
     "body-font-size": "0.85",
@@ -414,14 +414,14 @@ const exampleThemes = [
     "link-button-primary-color": "70, 40, 150",
     "activity-indicator-color": "255, 122, 9",
     "polling-indicator-color": "255, 122, 9",
-    "form-position": "left"
+    "form-position": formAlignLeft
   },
   {
     "label": "McDonalds",
     "value": "mcdonalds",
-    "company-logo-img-url": "https://cdn.glitch.global/5b50c5d3-8d5c-4936-9933-3537d1af98b3/mcdonalds.png?v=1686134816028",
+    "company-logo-img-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/mcdonalds-logo.png?v=1696506605085",
     "company-logo-max-height": "100",
-    "background-image-url": "https://cdn.glitch.global/5b50c5d3-8d5c-4936-9933-3537d1af98b3/mcdonalds-background.jpeg?v=1686144835104",
+    "background-image-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/mcdonalds-banner.jpeg?v=1696506604957",
     "card-background-color": "255, 255, 255",
     "body-font-family": "Trebuchet MS",
     "body-font-size": "0.85",
@@ -430,17 +430,17 @@ const exampleThemes = [
     "text-color-error": "223, 28, 37",
     "button-primary-text-color": "255, 255, 255",
     "button-primary-background-color": "183, 1, 9",
-    "link-button-primary-color": "183, 1, 9",
+    "link-button-primary-color": "12, 12, 12",
     "activity-indicator-color": "255, 183, 0",
     "polling-indicator-color": "255, 183, 0",
-    "form-position": "left"
+    "form-position": formAlignLeft
   },
   {
     "label": "Nova Scotia Tourism",
     "value": "nstourism",
-    "company-logo-img-url": "https://cdn.glitch.global/5b50c5d3-8d5c-4936-9933-3537d1af98b3/ns-tourism-logo.png?v=1686247094224",
-    "company-logo-max-height": "60",
-    "background-image-url": "https://d3qvqlc701gzhm.cloudfront.net/full/73c0591c106bf913e535e6322effbe2118b52960c480b3fd7f7fd4b57e5f98e4.jpg",
+    "company-logo-img-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/ns-tourism-logo.png?v=1696506274588",
+    "company-logo-max-height": "50",
+    "background-image-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/ns-tourism-banner.jpg?v=1696506238606",
     "card-background-color": "255, 255, 255",
     "body-font-family": "'Verdana', 'sans-serif'",
     "body-font-size": "0.85",
@@ -452,14 +452,14 @@ const exampleThemes = [
     "link-button-primary-color": "0, 108, 183",
     "activity-indicator-color": "255, 194, 33",
     "polling-indicator-color": "255, 194, 33",
-    "form-position": "center"
+    "form-position": formAlignCenter
   },
   {
     "label": "Serengeti Quest",
     "value": "serengetiquest",
-    "company-logo-img-url": "https://cdn.glitch.global/5b50c5d3-8d5c-4936-9933-3537d1af98b3/serengeti-quest-logo.png?v=1687518091134",
-    "company-logo-max-height": "130",
-    "background-image-url": "https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1736&q=80",
+    "company-logo-img-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/serengeti-quest-logo.png?v=1696506364517",
+    "company-logo-max-height": "100",
+    "background-image-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/serengeti-quest-banner.png?v=1696506330880",
     "card-background-color": "255, 255, 255",
     "body-font-family": "'Verdana', 'sans-serif'",
     "body-font-size": "0.85",
@@ -471,14 +471,14 @@ const exampleThemes = [
     "link-button-primary-color": "10, 77, 21",
     "activity-indicator-color": "249, 165, 38",
     "polling-indicator-color": "249, 165, 38",
-    "form-position": "right"
+    "form-position": formAlignRight
   },
   {
     "label": "Starbucks",
     "value": "starbucks",
-    "company-logo-img-url": "https://cdn.glitch.global/5b50c5d3-8d5c-4936-9933-3537d1af98b3/starbucks-logo.png?v=1686247280375",
-    "company-logo-max-height": "100",
-    "background-image-url": "https://images.unsplash.com/photo-1542181961-9590d0c79dab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
+    "company-logo-img-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/starbucks-logo.png?v=1696506552178",
+    "company-logo-max-height": "80",
+    "background-image-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/starbucks-banner.png?v=1696506517864",
     "card-background-color": "255, 255, 255",
     "body-font-family": "Helvetica",
     "body-font-size": "0.85",
@@ -490,14 +490,14 @@ const exampleThemes = [
     "link-button-primary-color": "0, 130, 72",
     "activity-indicator-color": "234, 199, 133",
     "polling-indicator-color": "234, 199, 133",
-    "form-position": "center"
+    "form-position": formAlignCenter
   },
   {
     "label": "Tesla",
     "value": "tesla",
-    "company-logo-img-url": "https://cdn.glitch.global/5b50c5d3-8d5c-4936-9933-3537d1af98b3/tesla-logo.png?v=1686166094567",
-    "company-logo-max-height": "30",
-    "background-image-url": "https://images.unsplash.com/photo-1538592116845-119a3974c958?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2064&q=80",
+    "company-logo-img-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/tesla-logo.png?v=1696506467427",
+    "company-logo-max-height": "20",
+    "background-image-url": "https://cdn.glitch.global/eef3caf0-9a96-461b-96db-d9c01015e5ed/tesla-banner.png?v=1696506425936",
     "card-background-color": "255, 255, 255",
     "body-font-family": "Arial",
     "body-font-size": "0.85",
@@ -509,7 +509,7 @@ const exampleThemes = [
     "link-button-primary-color": "62, 106, 255",
     "activity-indicator-color": "255, 194, 33",
     "polling-indicator-color": "255, 194, 33",
-    "form-position": "right"
+    "form-position": formAlignRight
   },
 ]
 
@@ -523,7 +523,7 @@ const baseCSS = `
 .companyLogo {
   content: var(--company-logo-img-url) !important;
   height: var(--company-logo-max-height) !important;
-  width: fit-content !important;
+  width: auto !important;
 }
 
 /*  BACKGROUND IMAGE  */
@@ -575,12 +575,6 @@ p.text-muted {
 .form-control:focus {
   border-color: rgba(var(--button-primary-background-color), .5) !important;
   box-shadow: 0 0 0 0.25rem rgba(var(--button-primary-background-color), 0.25) !important;
-}
-
-/* BORDERS */
-.border-info {
-  --bs-border-opacity: 1;
-  border-color: rgba(var(--button-primary-background-color), var(--bs-border-opacity)) !important;
 }
 
 /*  PRIMARY BUTTON  */

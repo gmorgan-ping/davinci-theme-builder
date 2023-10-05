@@ -82,7 +82,7 @@ const generateCSS = function () {
     --bs-danger-rgb: var(--text-color-error);
   }
 
-  ${getPositionCSS("test", "test")};
+  ${getFormValue("form-position")}
   `
   return overrideCSS + baseCSS
 }
