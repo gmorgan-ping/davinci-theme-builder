@@ -1,67 +1,57 @@
-:root {
-  --border-color: #222222;
-  --background-color: #3d3d3d;
-}
-
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+  padding: 20px;
+  background-color: #303f5f;
+  font-size: 12px;
+  color: #333;
 }
 
-.flow {
-  content: url("https://cdn.glitch.global/45a903ea-a07c-4016-9a65-324856c41c4b/davinci.png?v=1679319011133");
-  height: 20px;
-}
-
-.wrapperDiv {
-  background-color: var(--background-color);
+.main-container {
   width: 700px;
-  padding: 10px;
-  border-radius: 5px;
-  border: 2px solid var(--border-color);
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 500px;
 }
 
-input[type=text] {
-  width: 100%;
-  border: 1px solid var(--border-color);
-  border-radius: 3px;
+h1 {
+  font-size: 22px;
 }
 
-#palettePanelDiv {
-  background-color: whitesmoke;
-  border: 2px solid var(--border-color);
-  padding: 10px;
-  border-radius: 5px;
+h2 {
+  font-size: 20px;
 }
 
-td {
-  padding-right: 10px;
-  padding-bottom: 5px
+.logo {
+  height: 30px;
+  width: fit-content;
 }
 
-button.cssAction {
-  border: none;
-  background-color: white;
-  border-radius: 5px;
-  border: 1px solid #464646;
-  color: #464646;
-  padding: 2px 5px;
-  font-size: 13px;
-  cursor: pointer;
-  width: 140px;
-  height: 28px;
-  box-shadow: none;
-  transition: box-shadow 0.3s ease;
+.tab-content {
+
+  /* Set a fixed height for the tab content */
+  overflow-y: none;
+  /* Enable vertical scrolling if content exceeds height */
 }
 
-button.cssAction+button.cssAction {
-  margin-left: 15px;
+.tab-pane {
+  height: 260px;
+  padding: 0px 10px;
+
 }
 
-button.cssAction:hover {
-  border-color: #4169e1;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+input[type="color"] {
+  width: 90%;
+  height: 40px;
 }
 
-button.cssActionActive {
-  background-color: #9dc967;
+.col-md-4 {
+  flex: 0 0 auto;
+  width: 33.33333333%
+}
+
+.col-md-6 {
+  flex: 0 0 auto;
+  width: 50%
 }

@@ -3,86 +3,228 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DaVinci Theme Builder</title>
-  <link rel="stylesheet" href="extension-style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="bootstrap.css" rel="stylesheet">
+  <link href="extension-style.css" rel="stylesheet">
+  <title>DaVinci Style</title>
+  <style>
+
+  </style>
 </head>
 
 <body>
-  <div class="wrapperDiv">
-    <div style="display:flex; align-items: center;">
-      <img class="flow">
-      <h2 style="color:whitesmoke; display:inline-block; margin-left:20px;">DaVinci Flow Theme Builder</h2>
+  <div class="main-container align-center">
+    <div class="d-flex align-items-center mb-3">
+      <img src="https://cdn.glitch.global/45a903ea-a07c-4016-9a65-324856c41c4b/davinci.png?v=1679319011133" alt="Logo"
+        class="logo img-fluid me-3">
+      <h1 class="mb-0">DaVinci Brand Studio</h1>
     </div>
 
-    <div id="palettePanelDiv">
+    <p>Adjust the following settings to personalize the look and feel of your PingOne DaVinci flow, or choose from our
+      selection of preconfigured examples.</p>
 
-      <form id="davinciCSSForm">
-        <table class="css-table" style="width: 100%">
-          <tr>
-            <td><label>CSS Themes</label></td>
-            <td colspan="3"><select id="example-themes" style="width:100%"></select></td>
-          </tr>
-          <tr>
-            <td><label>Logo URL</label></td>
-            <td width="40%"><input type="text" id="company-logo-img-url" class="palette-input" /></td>
-            <td><label>Logo Height(px)</label></td>
-            <td><input type="text" id="company-logo-max-height" class="palette-input" /></td>
-          </tr>
-          <tr>
-            <td><label>Font Family</label></td>
-            <td><select id="body-font-family" style="width:100%"></select></td>
-            <td><label>Font Size (rem)</label></td>
-            <td><input type="text" id="body-font-size" class="palette-input" /></td>
-          </tr>
-          <tr>
-            <td><label>Bg Image URL</label></td>
-            <td><input type="text" id="background-image-url" class="palette-input" /></td>
-            <td><label>Form Position</label></td>
-            <td><select id="form-position" style="width:100%"></select></td>
-          </tr>
-        </table>
-        <h3 style="text-align: center; margin: 5px">Theme Colors</h3>
-        <table class="css-table" style="width: 100%">
-          <tr>
-            <td><label>Primary Text</label></td>
-            <td><input type="color" id="text-color-primary" title="Primary Text Color" /></td>
-            <td><label>Headings</label></td>
-            <td><input type="color" id="heading-text-color" title="H1-H4 Heading Color" /></td>
-            <td><label>Error Text</label></td>
-            <td><input type="color" id="text-color-error" title="Error Message Text Color" /></td>
-          </tr>
-          <tr>
-            <td><label>Btn Background </label></td>
-            <td><input type="color" id="button-primary-background-color" title="Button Background Color" /></td>
-            <td><label>Btn Text</label></td>
-            <td><input type="color" id="button-primary-text-color" title="Button Text Color" /></td>
-            <td><label>Link Button</label></td>
-            <td><input type="color" id="link-button-primary-color" title="Link Button Text Color" /></td>
-          </tr>
-          <tr>
-            <td><label>Form Bg Color</label></td>
-            <td><input type="color" id="card-background-color" title="Form Background Color" /></td>
-            <td><label>Activity</label></td>
-            <td><input type="color" id="activity-indicator-color" title="Button Activity Spinner" /></td>
-            <td><label>Polling</label></td>
-            <td><input type="color" id="polling-indicator-color" title="Polling Indicator" /></td>
-          </tr>
-        </table>
-      </form>
-      <div style="width: 100%;text-align: center; margin-top:5px;">
-        <button id="btnCopyCSS" class="cssAction" title="Copy generated CSS to clipboard">Copy CSS</button>
-        <button id="btnApplyCSS" class="cssAction" title="Apply CSS">Apply CSS</button>
-        <button id="btnResetCSS" class="cssAction" title="Reset CSS to selected theme defaults">Reset Theme</button>
+    <!-- Tab Panels -->
+    <ul class="nav nav-tabs" id="myTabs">
+      <li class="nav-item">
+        <a class="nav-link active" id="prebuiltTab" data-bs-toggle="tab" href="#prebuiltContent">Prebuilt Examples</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="generalTab" data-bs-toggle="tab" href="#generalContent">General</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="colorsTab" data-bs-toggle="tab" href="#colorsContent">Colors</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="borderRadiusTab" data-bs-toggle="tab" href="#borderRadiusContent">Border Radius</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="borderRadiusTab" data-bs-toggle="tab" href="#about">About</a>
+      </li>
+    </ul>
+    <form id="davinciCSSForm">
+      <div class="tab-content mt-3">
+        <!-- Prebuilt Examples Content -->
+        <div class="tab-pane fade show active" id="prebuiltContent">
+          <!-- Dropdown for Prebuilt Examples -->
+          <div class="mb-3">
+            <label for="example-themes" class="form-label">Select a Prebuilt Example:</label>
+            <select class="form-select" id="example-themes">
+              <!-- Available themes go here -->
+            </select>
+          </div>
+        </div>
+
+        <!-- General Content -->
+        <div class="tab-pane fade" id="generalContent">
+          <div class="row">
+            <!-- Logo URL -->
+            <div class="col-md-6 mb-3">
+              <label for="logoURL" class="form-label">Logo URL:</label>
+              <input type="text" class="form-control" id="company-logo-img-url">
+            </div>
+
+            <!-- Logo Height -->
+            <div class="col-md-6 mb-3">
+              <label for="logoHeight" class="form-label">Logo Height:</label>
+              <div class="input-group">
+                <input type="number" class="form-control" id="company-logo-max-height"
+                  aria-describedby="logoHeightAddon">
+                <span class="input-group-text" id="logoHeightAddon">px</span>
+              </div>
+            </div>
+
+            <!-- Background Image URL -->
+            <div class="col-md-6 mb-3">
+              <label for="background-image-url" class="form-label">Background Image URL:</label>
+              <input type="text" class="form-control" id="background-image-url">
+            </div>
+
+            <!-- Form Position -->
+            <div class="col-md-6 mb-3">
+              <label for="form-position" class="form-label">Form Position:</label>
+              <select class="form-select" id="form-position">
+                <!-- Dynamically added -->
+              </select>
+            </div>
+
+            <!-- Font Family -->
+            <div class="col-md-6 mb-3">
+              <label for="body-font-family" class="form-label">Font Family:</label>
+              <select class="form-select" id="body-font-family">
+                <!-- Available fonts go here -->
+              </select>
+            </div>
+
+            <!-- Font Size -->
+            <div class="col-md-6 mb-3">
+              <label for="fontSize" class="form-label">Font Size:</label>
+              <div class="input-group">
+                <input type="number" class="form-control" id="body-font-size" aria-describedby="fontSizeAddon">
+                <span class="input-group-text" id="fontSizeAddon">px</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Colors Content -->
+        <div class="tab-pane fade" id="colorsContent">
+          <!-- Content for Colors Section -->
+          <div class="row">
+            <!-- Primary Text Color Selector -->
+            <div class="col-md-4 mb-3">
+              <label for="text-color-primary" class="form-label">Primary Text Color:</label>
+              <input type="color" class="form-control" id="text-color-primary">
+            </div>
+
+            <!-- Headings Color Selector -->
+            <div class="col-md-4 mb-3">
+              <label for="heading-text-color" class="form-label">Headings Color:</label>
+              <input type="color" class="form-control" id="heading-text-color">
+            </div>
+
+            <!-- Error Text Color Selector -->
+            <div class="col-md-4 mb-3">
+              <label for="text-color-error" class="form-label">Error Text Color:</label>
+              <input type="color" class="form-control" id="text-color-error">
+            </div>
+          </div>
+
+          <div class="row">
+            <!-- Button Background Color Selector -->
+            <div class="col-md-4 mb-3">
+              <label for="button-primary-background-color" class="form-label">Button Background Color:</label>
+              <input type="color" class="form-control" id="button-primary-background-color">
+            </div>
+
+            <!-- Button Text Color Selector -->
+            <div class="col-md-4 mb-3">
+              <label for="button-primary-text-color" class="form-label">Button Text Color:</label>
+              <input type="color" class="form-control" id="button-primary-text-color">
+            </div>
+
+            <!-- Link Button Color Selector -->
+            <div class="col-md-4 mb-3">
+              <label for="link-button-primary-color" class="form-label">Link Button Color:</label>
+              <input type="color" class="form-control" id="link-button-primary-color">
+            </div>
+          </div>
+
+          <div class="row">
+            <!-- Form Background Color Selector -->
+            <div class="col-md-4 mb-3">
+              <label for="card-background-color" class="form-label">Form Background Color:</label>
+              <input type="color" class="form-control" id="card-background-color">
+            </div>
+
+            <!-- Activity Spinner Color Selector -->
+            <div class="col-md-4 mb-3">
+              <label for="activity-indicator-color" class="form-label">Activity Spinner Color:</label>
+              <input type="color" class="form-control" id="activity-indicator-color">
+            </div>
+
+            <!-- Polling Indicator Color Selector -->
+            <div class="col-md-4 mb-3">
+              <label for="polling-indicator-color" class="form-label">Polling Indicator Color:</label>
+              <input type="color" class="form-control" id="polling-indicator-color">
+            </div>
+          </div>
+        </div>
+
+        <!-- Border Radius Content -->
+        <div class="tab-pane fade" id="borderRadiusContent">
+          <div class="row">
+            <!-- Text Input Border Radius -->
+            <div class="col-md-6 mb-3">
+              <label for="textInputBorderRadius" class="form-label">Text Input Border Radius:</label>
+              <div class="input-group">
+                <input type="number" class="form-control" id="form-control-border-radius"
+                  aria-describedby="textInputBorderRadiusAddon">
+                <span class="input-group-text" id="textInputBorderRadiusAddon">px</span>
+              </div>
+            </div>
+
+            <!-- Button Border Radius -->
+            <div class="col-md-6 mb-3">
+              <label for="buttonBorderRadius" class="form-label">Button Border Radius:</label>
+              <div class="input-group">
+                <input type="number" class="form-control" id="button-primary-border-radius"
+                  aria-describedby="buttonBorderRadiusAddon">
+                <span class="input-group-text" id="buttonBorderRadiusAddon">px</span>
+              </div>
+            </div>
+
+            <!-- Form Border Radius -->
+            <div class="col-md-6 mb-3">
+              <label for="formBorderRadius" class="form-label">Form Border Radius:</label>
+              <div class="input-group">
+                <input type="number" class="form-control" id="card-body-border-radius"
+                  aria-describedby="formBorderRadiusAddon">
+                <span class="input-group-text" id="formBorderRadiusAddon">px</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="tab-pane fade" id="about">
+          <!-- Dropdown for Prebuilt Examples -->
+          About content goes here
+        </div>
+
+        <div class="mt-3 d-flex justify-content-center btn-group mt-auto mb-4">
+          <button id="btnCopyCSS" type="button" class="btn btn-primary me-2">Copy CSS</button>
+          <button id="btnApplyCSS" type="button" class="btn btn-secondary me-2">Apply Style</button>
+          <button id="btnResetCSS" type="button" class="btn btn-danger">Reset Theme</button>
+        </div>
       </div>
-    </div>
+    </form>
   </div>
+
+  <script src="bootstrap.min.js"></script>
   <script src="themeBuilderConstants.js"></script>
   <script src="generateCSS.js"></script>
   <script src="content.js"></script>
   <script src="main.js"></script>
 </body>
-
 
 </html>

@@ -53,6 +53,9 @@ const exampleThemes = [
     "link-button-primary-color": "39, 123, 165",
     "activity-indicator-color": "68, 98, 237",
     "polling-indicator-color": "68, 98, 237",
+    "button-primary-border-radius": 10,
+    "card-body-border-radius": 0,
+    "form-control-border-radius": 0,
     "form-position": formAlignCenter
   },
   {
@@ -72,6 +75,9 @@ const exampleThemes = [
     "link-button-primary-color": "200, 61, 125",
     "activity-indicator-color": "24, 34, 55",
     "polling-indicator-color": "24, 34, 55",
+    "button-primary-border-radius": 20,
+    "card-body-border-radius": 0,
+    "form-control-border-radius": 0,
     "form-position": formAlignLeft
   },
   {
@@ -91,6 +97,9 @@ const exampleThemes = [
     "link-button-primary-color": "0, 42, 236",
     "activity-indicator-color": "152, 77, 247",
     "polling-indicator-color": "152, 77, 247",
+    "button-primary-border-radius": 0,
+    "card-body-border-radius": 0,
+    "form-control-border-radius": 0,
     "form-position": formAlignCenter
   },
   {
@@ -110,6 +119,9 @@ const exampleThemes = [
     "link-button-primary-color": "51, 182, 103",
     "activity-indicator-color": "24, 34, 55",
     "polling-indicator-color": "24, 34, 55",
+    "button-primary-border-radius": 0,
+    "card-body-border-radius": 0,
+    "form-control-border-radius": 0,
     "form-position": formAlignCenter
   },
   {
@@ -129,6 +141,9 @@ const exampleThemes = [
     "link-button-primary-color": "76, 107, 247",
     "activity-indicator-color": "24, 34, 55",
     "polling-indicator-color": "24, 34, 55",
+    "button-primary-border-radius": 10,
+    "card-body-border-radius": 10,
+    "form-control-border-radius": 10,
     "form-position": formAlignRight
   },
   {
@@ -148,6 +163,9 @@ const exampleThemes = [
     "link-button-primary-color": "74, 186, 163",
     "activity-indicator-color": "24, 34, 55",
     "polling-indicator-color": "24, 34, 55",
+    "button-primary-border-radius": 0,
+    "card-body-border-radius": 0,
+    "form-control-border-radius": 0,
     "form-position": formAlignLeft
   },
   {
@@ -167,6 +185,9 @@ const exampleThemes = [
     "link-button-primary-color": "207, 140, 26",
     "activity-indicator-color": "33, 37, 41",
     "polling-indicator-color": "33, 37, 41",
+    "button-primary-border-radius": 0,
+    "card-body-border-radius": 0,
+    "form-control-border-radius": 0,
     "form-position": formAlignCenter
   },
   {
@@ -186,6 +207,9 @@ const exampleThemes = [
     "link-button-primary-color": "51, 40, 66",
     "activity-indicator-color": "223, 95, 79",
     "polling-indicator-color": "223, 95, 79",
+    "button-primary-border-radius": 10,
+    "card-body-border-radius": 0,
+    "form-control-border-radius": 0,
     "form-position": formAlignLeft
   },
   {
@@ -205,6 +229,9 @@ const exampleThemes = [
     "link-button-primary-color": "180, 151, 49",
     "activity-indicator-color": "9, 21, 43",
     "polling-indicator-color": "9, 21, 43",
+    "button-primary-border-radius": 0,
+    "card-body-border-radius": 0,
+    "form-control-border-radius": 0,
     "form-position": formAlignLeft
   },
   {
@@ -224,6 +251,9 @@ const exampleThemes = [
     "link-button-primary-color": "243, 89, 17",
     "activity-indicator-color": "24, 34, 55",
     "polling-indicator-color": "9, 21, 43",
+    "button-primary-border-radius": 0,
+    "card-body-border-radius": 0,
+    "form-control-border-radius": 0,
     "form-position": formAlignLeft
   },
   {
@@ -243,6 +273,9 @@ const exampleThemes = [
     "link-button-primary-color": "241, 203, 0",
     "activity-indicator-color": "24, 34, 55",
     "polling-indicator-color": "24, 34, 55",
+    "button-primary-border-radius": 0,
+    "card-body-border-radius": 0,
+    "form-control-border-radius": 0,
     "form-position": formAlignRight
   },
   {
@@ -262,6 +295,9 @@ const exampleThemes = [
     "link-button-primary-color": "38, 189, 144",
     "activity-indicator-color": "24, 34, 55",
     "polling-indicator-color": "24, 34, 55",
+    "button-primary-border-radius": 10,
+    "card-body-border-radius": 0,
+    "form-control-border-radius": 0,
     "form-position": formAlignLeft
   },
   {
@@ -281,6 +317,9 @@ const exampleThemes = [
     "link-button-primary-color": "31, 153, 211",
     "activity-indicator-color": "24, 34, 55",
     "polling-indicator-color": "24, 34, 55",
+    "button-primary-border-radius": 10,
+    "card-body-border-radius": 0,
+    "form-control-border-radius": 0,
     "form-position": formAlignLeft
   },
   {
@@ -300,6 +339,9 @@ const exampleThemes = [
     "link-button-primary-color": "31, 153, 211",
     "activity-indicator-color": "248, 199, 70",
     "polling-indicator-color": "248, 199, 70",
+    "button-primary-border-radius": 20,
+    "card-body-border-radius": 0,
+    "form-control-border-radius": 0,
     "form-position": formAlignCenter
   },
   {
@@ -319,6 +361,9 @@ const exampleThemes = [
     "link-button-primary-color": "238, 39, 27",
     "activity-indicator-color": "24, 34, 55",
     "polling-indicator-color": "24, 34, 55",
+    "button-primary-border-radius": 20,
+    "card-body-border-radius": 5,
+    "form-control-border-radius": 5,
     "form-position": formAlignCenter
   },
   {
@@ -338,6 +383,9 @@ const exampleThemes = [
     "link-button-primary-color": "60, 113, 87",
     "activity-indicator-color": "147, 184, 164",
     "polling-indicator-color": "147, 184, 164",
+    "button-primary-border-radius": 20,
+    "card-body-border-radius": 8,
+    "form-control-border-radius": 8,
     "form-position": formAlignLeft
   },
   {
@@ -357,6 +405,9 @@ const exampleThemes = [
     "link-button-primary-color": "17, 17, 17",
     "activity-indicator-color": "236, 142, 15",
     "polling-indicator-color": "236, 142, 15",
+    "button-primary-border-radius": 0,
+    "card-body-border-radius": 0,
+    "form-control-border-radius": 0,
     "form-position": formAlignCenter
   },
   {
@@ -376,6 +427,9 @@ const exampleThemes = [
     "link-button-primary-color": "1, 151, 220",
     "activity-indicator-color": "57, 73, 87",
     "polling-indicator-color": "57, 73, 87",
+    "button-primary-border-radius": 20,
+    "card-body-border-radius": 0,
+    "form-control-border-radius": 0,
     "form-position": formAlignRight
   },
   {
@@ -395,6 +449,9 @@ const exampleThemes = [
     "link-button-primary-color": "238, 43, 46",
     "activity-indicator-color": "236,1 42, 15",
     "polling-indicator-color": "236,1 42, 15",
+    "button-primary-border-radius": 10,
+    "card-body-border-radius": 5,
+    "form-control-border-radius": 5,
     "form-position": formAlignCenter
   },
   {
@@ -414,6 +471,9 @@ const exampleThemes = [
     "link-button-primary-color": "70, 40, 150",
     "activity-indicator-color": "255, 122, 9",
     "polling-indicator-color": "255, 122, 9",
+    "button-primary-border-radius": 0,
+    "card-body-border-radius": 0,
+    "form-control-border-radius": 0,
     "form-position": formAlignLeft
   },
   {
@@ -433,6 +493,9 @@ const exampleThemes = [
     "link-button-primary-color": "12, 12, 12",
     "activity-indicator-color": "255, 183, 0",
     "polling-indicator-color": "255, 183, 0",
+    "button-primary-border-radius": 10,
+    "card-body-border-radius": 0,
+    "form-control-border-radius": 0,
     "form-position": formAlignLeft
   },
   {
@@ -452,6 +515,9 @@ const exampleThemes = [
     "link-button-primary-color": "0, 108, 183",
     "activity-indicator-color": "255, 194, 33",
     "polling-indicator-color": "255, 194, 33",
+    "button-primary-border-radius": 10,
+    "card-body-border-radius": 10,
+    "form-control-border-radius": 10,
     "form-position": formAlignCenter
   },
   {
@@ -471,6 +537,9 @@ const exampleThemes = [
     "link-button-primary-color": "10, 77, 21",
     "activity-indicator-color": "249, 165, 38",
     "polling-indicator-color": "249, 165, 38",
+    "button-primary-border-radius": 0,
+    "card-body-border-radius": 0,
+    "form-control-border-radius": 0,
     "form-position": formAlignRight
   },
   {
@@ -490,6 +559,9 @@ const exampleThemes = [
     "link-button-primary-color": "0, 130, 72",
     "activity-indicator-color": "234, 199, 133",
     "polling-indicator-color": "234, 199, 133",
+    "button-primary-border-radius": 10,
+    "card-body-border-radius": 0,
+    "form-control-border-radius": 0,
     "form-position": formAlignCenter
   },
   {
@@ -509,6 +581,9 @@ const exampleThemes = [
     "link-button-primary-color": "62, 106, 255",
     "activity-indicator-color": "255, 194, 33",
     "polling-indicator-color": "255, 194, 33",
+    "button-primary-border-radius": 0,
+    "card-body-border-radius": 0,
+    "form-control-border-radius": 0,
     "form-position": formAlignRight
   },
 ]
@@ -520,6 +595,7 @@ const baseCSS = `
 *********************************************************/
 
 /*  COMPANY LOGO  */
+.card-body.p-5.d-flex.flex-column > img:first-child,
 .companyLogo {
   content: var(--company-logo-img-url) !important;
   height: var(--company-logo-max-height) !important;
@@ -564,6 +640,7 @@ p.text-muted {
 .form-control,
 .form-control:focus {
   color: var(--text-color-primary) !important;
+  border-radius: var(--form-control-border-radius) !important;
 }
 
 /*  FORM CONTROL PLACEHOLDER FONT COLOR  */
@@ -596,13 +673,13 @@ p.text-muted {
   background-color: rgb(var(--button-primary-background-color)) !important;
   border-color: rgb(var(--button-primary-background-color)) !important;
   color: var(--button-primary-text-color) !important;
+  border-radius: var(--button-primary-border-radius);
 }
 
 
 .btn-primary:hover {
   background-color: rgba(var(--button-primary-background-color), var(--button-hover-alpha)) !important;
   border-color: rgba(var(--button-primary-background-color), var(--button-hover-alpha)) !important;
-
   color: var(--button-primary-text-color) !important;
 }
 
@@ -635,4 +712,13 @@ p.text-muted {
   /*  spinning circle color  */
   --primary-color: var(--activity-indicator-color) !important;
 }
+
+.card-body.p-5.d-flex.flex-column {
+  border-radius: var(--card-body-border-radius);
+}
+
+.card.shadow.mb-5 {
+  border-radius: var(--card-body-border-radius);
+}
+
 `

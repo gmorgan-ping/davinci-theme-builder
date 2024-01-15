@@ -1,7 +1,9 @@
+// Set logging for extension
+const enableLogs = true;
 /**
  * Initialize chrome extension
  */
-const initializeExtension = function () {
+const initializeExtension = () => {
 
   console.log("Initializing Theme Builder");
 
@@ -46,6 +48,7 @@ const initializeExtension = function () {
   var inputs = paletteForm.querySelectorAll("input, select");
 
   inputs.forEach(input => {
+    consoleLog(`Adding listener for: ${input.id}`)
     input.addEventListener('change', applyCSSFromFormControls);
     input.addEventListener('keyup', applyCSSFromFormControls);
   });
@@ -65,10 +68,11 @@ const initializeExtension = function () {
  * Function to apply the CSS items retrieved from local storage
  * @param {Array<{ id: string, value: string }>} items - iterable list of CSS items
  */
-const applyCSSValuesFromLocalStorage = function (items) {
+const applyCSSValuesFromLocalStorage = (items) => {
   items.forEach(item => {
     const element = document.getElementById(item.id);
     if (element) {
+      consoleLog(`Setting field: ${element.id} to ${item.value}`)
       element.value = item.value;
     }
   });
@@ -78,7 +82,7 @@ const applyCSSValuesFromLocalStorage = function (items) {
  * Function to generate the CSS based upon form fields then apply it
  * to the active tab
  */
-const applyCSSFromFormControls = function () {
+const applyCSSFromFormControls = () => {
   const messageObj = {
     action: "applyDaVinciCSS",
     css: generateCSS()
@@ -100,7 +104,7 @@ const applyCSSFromFormControls = function () {
  * Function to write the current form field values to local storage.
  * This is needed as the extension resets each time it is displayed
  */
-const persistCurrentSettings = function () {
+const persistCurrentSettings = () => {
   const paletteForm = document.getElementById("davinciCSSForm");
   const inputs = paletteForm.querySelectorAll("input, select");
   const formValuesArray = Array.from(inputs).map(input => ({
@@ -119,7 +123,7 @@ const persistCurrentSettings = function () {
  * @param {Array<{ value: string, label: string }>} options - iterable list of items
  * @param {boolean} [shouldSort=false] - flag indicating whether to sort the option labels
  */
-const buildSelectOptions = function (element, options, shouldSort = false) {
+const buildSelectOptions = (element, options, shouldSort = false) => {
   if (shouldSort) {
     options.sort((a, b) => a.value.localeCompare(b.value));
   }
@@ -137,7 +141,7 @@ const buildSelectOptions = function (element, options, shouldSort = false) {
  * Function to load the CSS settings for a select item them
  * @param {string} selectedValue - select dropdown value
  */
-const loadThemeSettings = function (selectedValue) {
+const loadThemeSettings = (selectedValue) => {
   console.log("loadThemeSettings", selectedValue);
   const selectedTheme = exampleThemes.find(theme => theme.value === selectedValue);
   setCSSFormFields(selectedTheme);
@@ -147,7 +151,7 @@ const loadThemeSettings = function (selectedValue) {
  * Function to apply the selected example theme to the form fields
  * @param {Object} themeCSS - theme object 
  */
-const setCSSFormFields = function (themeCSS) {
+const setCSSFormFields = (themeCSS) => {
   if (themeCSS) {
     // Update form fields
     for (let key in themeCSS) {
@@ -162,7 +166,7 @@ const setCSSFormFields = function (themeCSS) {
  * Returns an elements value
  * @param {string} id - The ID of the HTML element
  */
-const getFormValue = function (id) {
+const getFormValue = (id) => {
   let elementValue;
   try {
     elementValue = document.getElementById(id).value;
@@ -178,7 +182,7 @@ const getFormValue = function (id) {
  * @param {string} value - The value to be set for the element
  * @throws {Error} If the element with the given ID is not found.
  */
-const setElementValue = function (id, value) {
+const setElementValue = (id, value) => {
   let element = document.getElementById(id);
 
   if (!element) {
@@ -187,6 +191,7 @@ const setElementValue = function (id, value) {
 
   switch (element.type) {
     case "text":
+    case "number":
       element.value = value;
       break;
     case "color":
@@ -198,6 +203,7 @@ const setElementValue = function (id, value) {
       }
       break;
   }
+  consoleLog(`Setting: ${id} (${element.type}) to ${value}`)
 }
 
 /**
@@ -206,7 +212,7 @@ const setElementValue = function (id, value) {
  * however the css overrides require rgb
  * @param {string} hex - the hex color value
  */
-const hexToRgb = function (hex) {
+const hexToRgb = (hex) => {
   hex = hex.replace('#', '');
 
   const r = parseInt(hex.substring(0, 2), 16);
@@ -224,7 +230,7 @@ const hexToRgb = function (hex) {
  * however the css overrides use RGB
  * @param {string} rgb - the RGB color value
  */
-const rgbToHex = function (rgb) {
+const rgbToHex = (rgb) => {
   const [r, g, b] = rgb.match(/\d+/g);
 
   const hexR = Number(r).toString(16).padStart(2, '0');
@@ -241,7 +247,7 @@ const rgbToHex = function (rgb) {
  * @param {string} newText - The text value to be set for the element
  * @param {integer} duration - The duration in ms to display the updated text
  */
-const updateButtonText = function (button, newText, duration) {
+const updateButtonText = (button, newText, duration) => {
   var originalText = button.textContent;
   var originalBackgroundColor = button.style.backgroundColor;
 
@@ -249,7 +255,7 @@ const updateButtonText = function (button, newText, duration) {
   button.textContent = newText;
   button.classList.toggle("cssActionActive");
 
-  setTimeout(function () {
+  setTimeout(() => {
     button.textContent = originalText;
     button.classList.toggle("cssActionActive");
   }, duration);
@@ -259,7 +265,7 @@ const updateButtonText = function (button, newText, duration) {
  * Method that writes to the clipboard by creating a textarea
  * @param {string} text - The text value to place on the clipboard
  */
-const writeToClipboard = function (text) {
+const writeToClipboard = (text) => {
   const tmpTextArea = document.createElement('textarea');
 
   tmpTextArea.value = text;
@@ -279,6 +285,12 @@ const writeCSSToClipboard = function (e) {
   writeToClipboard(generateCSS());
   updateButtonText(e.currentTarget, "✓ Copied", 1500);
 
+}
+
+const consoleLog = (message) => {
+  if (enableLogs) {
+    console.log(message);
+  }
 }
 
 initializeExtension();

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DaVinci Theme Builder</title>
+  <link rel="stylesheet" href="extension-style.css" />
+</head>
+
+<body>
+  <div class="wrapperDiv">
+    <div style="display:flex; align-items: center;">
+      <img class="flow">
+      <h2 style="color:whitesmoke; display:inline-block; margin-left:20px;">DaVinci Flow Theme Builder</h2>
+    </div>
+
+    <div id="palettePanelDiv">
+
+      <form id="davinciCSSForm">
+        <table class="css-table" style="width: 100%">
+          <tr>
+            <td><label>CSS Themes</label></td>
+            <td colspan="3"><select id="example-themes" style="width:100%"></select></td>
+          </tr>
+          <tr>
+            <td><label>Logo URL</label></td>
+            <td width="40%"><input type="text" id="company-logo-img-url" class="palette-input" /></td>
+            <td><label>Logo Height(px)</label></td>
+            <td><input type="text" id="company-logo-max-height" class="palette-input" /></td>
+          </tr>
+          <tr>
+            <td><label>Font Family</label></td>
+            <td><select id="body-font-family" style="width:100%"></select></td>
+            <td><label>Font Size (rem)</label></td>
+            <td><input type="text" id="body-font-size" class="palette-input" /></td>
+          </tr>
+          <tr>
+            <td><label>Bg Image URL</label></td>
+            <td><input type="text" id="background-image-url" class="palette-input" /></td>
+            <td><label>Form Position</label></td>
+            <td><select id="form-position" style="width:100%"></select></td>
+          </tr>
+        </table>
+        <h3 style="text-align: center; margin: 5px">Theme Colors</h3>
+        <table class="css-table" style="width: 100%">
+          <tr>
+            <td><label>Primary Text</label></td>
+            <td><input type="color" id="text-color-primary" title="Primary Text Color" /></td>
+            <td><label>Headings</label></td>
+            <td><input type="color" id="heading-text-color" title="H1-H4 Heading Color" /></td>
+            <td><label>Error Text</label></td>
+            <td><input type="color" id="text-color-error" title="Error Message Text Color" /></td>
+          </tr>
+          <tr>
+            <td><label>Btn Background </label></td>
+            <td><input type="color" id="button-primary-background-color" title="Button Background Color" /></td>
+            <td><label>Btn Text</label></td>
+            <td><input type="color" id="button-primary-text-color" title="Button Text Color" /></td>
+            <td><label>Link Button</label></td>
+            <td><input type="color" id="button-primary-text-color" title="Link Button Text Color" /></td>
+          </tr>
+          <tr>
+            <td><label>Form Bg Color</label></td>
+            <td><input type="color" id="card-background-color" title="Form Background Color" /></td>
+            <td><label>Activity</label></td>
+            <td><input type="color" id="activity-indicator-color" title="Button Activity Spinner" /></td>
+            <td><label>Polling</label></td>
+            <td><input type="color" id="polling-indicator-color" title="Polling Indicator" /></td>
+          </tr>
+        </table>
+        <h3 style="text-align: center; margin: 5px">Border Radius</h3>
+        <table class="css-table" style="width: 100%;">
+          <tr>
+            <td><label>Form (px)</label></td>
+            <td style="width: 60px"><input type="text" id="" title="Form Panel" /></td>
+            <td><label>Text Field (px)</label></td>
+            <td style="width: 60px"><input type="text" id="" title="Input Fields" /></td>
+            <td><label>Text Field (px)</label></td>
+            <td style="width: 60px"><input type="text" id="" title="Input Fields" /></td>
+          </tr>
+        </table>
+      </form>
+      <div style="width: 100%;text-align: center; margin-top:5px;">
+        <button id="btnCopyCSS" class="cssAction" title="Copy generated CSS to clipboard">Copy CSS</button>
+        <button id="btnApplyCSS" class="cssAction" title="Apply CSS">Apply CSS</button>
+        <button id="btnResetCSS" class="cssAction" title="Reset CSS to selected theme defaults">Reset Theme</button>
+      </div>
+    </div>
+  </div>
+  <script src="themeBuilderConstants.js"></script>
+  <script src="generateCSS.js"></script>
+  <script src="content.js"></script>
+  <script src="main.js"></script>
+</body>
+
+
+</html>

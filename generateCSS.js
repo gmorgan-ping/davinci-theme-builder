@@ -57,6 +57,9 @@ const generateCSS = function () {
     /* LINK BUTTON FONT COLOR (RGB)  */
     --link-button-primary-color: ${hexToRgb(getFormValue("link-button-primary-color"))};
 
+    /* BUTTON BORDER RADIUS */
+    --button-primary-border-radius: ${getFormValue("button-primary-border-radius")}px;
+
     /*  BUTTON HOVER ALPHA  */
     --button-hover-alpha: 0.70;
 
@@ -65,6 +68,12 @@ const generateCSS = function () {
 
     /*  BUTTON DISABLED ALPHA  */
     --button-disabled-alpha: 0.65;
+
+    /********************************************************
+     * FORM CONTROLS
+     *********************************************************/
+    --form-control-border-radius: ${getFormValue("form-control-border-radius")}px;
+    --card-body-border-radius: ${getFormValue("card-body-border-radius")}px;
 
     /********************************************************
     * ACTIVITY INDICATOR & BUTTON SPINNER COLOR
