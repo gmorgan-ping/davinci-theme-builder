@@ -21,6 +21,7 @@ const generateCSS = function () {
     * CARD BODY
     *********************************************************/
     --card-background-color: rgb(${hexToRgb(getFormValue("card-background-color"))});
+    --card-shadow-color: rgba(${hexToRgb(getFormValue("card-shadow-color"))}, .35);
 
     /********************************************************
     * BODY
@@ -74,6 +75,7 @@ const generateCSS = function () {
      *********************************************************/
     --form-control-border-radius: ${getFormValue("form-control-border-radius")}px;
     --card-body-border-radius: ${getFormValue("card-body-border-radius")}px;
+    --focus-highlight-color: ${hexToRgb(getFormValue("focus-highlight-color"))};
 
     /********************************************************
     * ACTIVITY INDICATOR & BUTTON SPINNER COLOR

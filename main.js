@@ -1,5 +1,7 @@
 // Set logging for extension
 const enableLogs = true;
+
+let activeTabId = "prebuiltTab";
 /**
  * Initialize chrome extension
  */
@@ -53,6 +55,12 @@ const initializeExtension = () => {
     input.addEventListener('keyup', applyCSSFromFormControls);
   });
 
+  // Set tab listener
+  document.getElementById('myTabs').addEventListener('shown.bs.tab', function (event) {
+    activeTabId = event.target.getAttribute('href').substring(1);
+    persistActiveTab();
+  });
+
   // As chrome extensions refresh each time they're clicked, pull CSS settings
   // from local storage 
   chrome.storage.sync.get(['davinciCSS'], function (items) {
@@ -60,6 +68,14 @@ const initializeExtension = () => {
       loadThemeSettings("pingidentity");
     } else {
       applyCSSValuesFromLocalStorage(items.davinciCSS);
+    }
+  });
+
+  // Get active tab
+  chrome.storage.sync.get(['activeTab'], function (items) {
+    console.log("Getting Active tab", items)
+    if (Object.keys(items).length !== 0) {
+      setActiveTab(items.activeTab.value)
     }
   });
 }
@@ -72,7 +88,7 @@ const applyCSSValuesFromLocalStorage = (items) => {
   items.forEach(item => {
     const element = document.getElementById(item.id);
     if (element) {
-      consoleLog(`Setting field: ${element.id} to ${item.value}`)
+      // consoleLog(`Setting field: ${element.id} to ${item.value}`)
       element.value = item.value;
     }
   });
@@ -100,6 +116,13 @@ const applyCSSFromFormControls = () => {
   persistCurrentSettings();
 }
 
+const persistActiveTab = () => {
+  const tab = { id: "activeTab", value: activeTabId };
+  chrome.storage.sync.set({ 'activeTab': tab }, function () {
+    consoleLog('Active Tab Saved', tab);
+  });
+}
+
 /**
  * Function to write the current form field values to local storage.
  * This is needed as the extension resets each time it is displayed
@@ -115,6 +138,17 @@ const persistCurrentSettings = () => {
   chrome.storage.sync.set({ 'davinciCSS': formValuesArray }, function () {
     console.log('Settings saved');
   });
+};
+
+
+const setActiveTab = (activeTabId) => {
+  // Find the tab link with the specified ID
+  const tabLink = document.querySelector(`.nav-tabs .nav-link[href="#${activeTabId}"]`);
+
+  // If the tab link is found, trigger a click event
+  if (tabLink) {
+    tabLink.click();
+  }
 };
 
 /**
@@ -287,9 +321,9 @@ const writeCSSToClipboard = function (e) {
 
 }
 
-const consoleLog = (message) => {
+const consoleLog = (...message) => {
   if (enableLogs) {
-    console.log(message);
+    console.log(...message);
   }
 }
 
