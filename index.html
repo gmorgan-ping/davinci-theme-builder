@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="bootstrap.css" rel="stylesheet">
-  <link href="extension-style.css" rel="stylesheet">
+  <link href="style/bootstrap.css" rel="stylesheet">
+  <link href="style/extension-style.css" rel="stylesheet">
   <title>DaVinci Style</title>
   <style>
 
@@ -20,7 +20,7 @@
       <h1 class="mb-0">DaVinci Flow Branding Studio</h1>
     </div>
 
-    <p>Adjust the following settings to customize the look and feel of your PingOne DaVinci flow, or choose from our
+    <p>Modify the following settings to customize the look and feel of your PingOne DaVinci flow, or choose from our
       selection of preconfigured themes.</p>
 
     <!-- Tab Panels -->
@@ -52,12 +52,27 @@
         <!-- Prebuilt Examples Content -->
         <div class="tab-pane fade show active padded-top" id="prebuiltContent">
           <!-- Dropdown for Prebuilt Examples -->
-          <div class="mb-3 padded-top">
-            <label for="example-themes" class="form-label">Select a Prebuilt Example:</label>
-            <select class="form-select" id="example-themes">
-              <!-- Available themes go here -->
-            </select>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="example-themes" class="form-label">Select a Prebuilt Example:</label>
+              <select class="form-select" id="example-themes">
+                <!-- Available themes go here -->
+              </select>
+            </div>
+            <div class="col-md-6 mb-3">
+              <div class="mb-3">
+                <label for="user-themes" class="form-label">Saved Themes:</label>
+                <select class="form-select" id="user-themes">
+                  <!-- Available themes go here -->
+                </select>
+              </div>
+              <div>
+                <button id="btnManageThemes" type="button" class="btn btn-link float-end">
+                  Manage Saved Themes</button>
+              </div>
+            </div>
           </div>
+
         </div>
 
         <!-- Logo Content -->
@@ -230,11 +245,12 @@
               customizing Ping Identity
               DaVinci flows created using Bootstrap CSS. </p>
             <p>This tool simplifies rebranding, offering a user-friendly interface to modify logos,
-              background images, fonts, and more. Whether you're a developer streamlining the process or a designer
+              background images, fonts, and more.</p>
+            <p>Whether you're a developer streamlining the process or a designer
               enhancing the out-of-the-box experience, the Design Studio ensures a polished and personalized touch.</p>
             <div class="version-info">
               <p class="mb-0"><strong>Version:</strong> 2.0.0</p>
-              <p class="mb-0"><strong>Release Date:</strong> January 15, 2024</p>
+              <p class="mb-0"><strong>Release Date:</strong> January 20, 2024</p>
               <p class="mb-0"><strong>Created By:</strong> Ping Identity - Cloud Solutions &amp; Velocity</p>
             </div>
           </div>
@@ -242,10 +258,14 @@
       </div>
 
       <div class="mt-3 d-flex justify-content-center btn-group mb-4">
-        <button id="btnCopyCSS" type="button" class="btn btn-primary me-2" title="Copy generated CSS to clipboard">
+        <button id="btnCopyCSS" type="button" class="btn btn-secondary me-2" title="Copy generated CSS to clipboard">
           Copy CSS
         </button>
-        <button id="btnApplyCSS" type="button" class="btn btn-secondary me-2">Apply Style</button>
+        <button id="btnApplyCSS" type="button" class="btn btn-secondary me-2 d-none">Apply Style</button>
+        <button id="btnSaveCSS" type="button" class="btn btn-secondary me-2" title="Save current css settings"
+          data-bs-toggle="modal" data-bs-target="#saveStyleModal">
+          Save Theme
+        </button>
         <button id="btnResetCSS" type="button" class="btn btn-danger" title="Reset theme to original settings">
           Reset Theme
         </button>
@@ -254,11 +274,32 @@
     </form>
   </div>
 
-  <script src="bootstrap.min.js"></script>
-  <script src="themeBuilderConstants.js"></script>
-  <script src="generateCSS.js"></script>
+  <!-- Modal -->
+  <div class="modal fade" id="saveStyleModal" tabindex="-1" aria-labelledby="saveStyleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #cecece;">
+          <h5 class="modal-title" id="saveStyleModalLabel">Save Theme</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <label for="themeName" class="form-label">Enter Theme Name:</label>
+          <input type="text" class="form-control" id="themeName">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="saveStyleBtn">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts/bootstrap.min.js"></script>
+  <script src="scripts/themeBuilderConstants.js"></script>
+  <script src="scripts/generateCSS.js"></script>
   <script src="content.js"></script>
-  <script src="main.js"></script>
+  <script src="scripts/utils.js"></script>
+  <script src="scripts/main.js"></script>
 </body>
 
 </html>

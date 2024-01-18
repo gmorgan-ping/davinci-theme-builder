@@ -1,0 +1,16 @@
+{
+  "CUSTOM_THEMES": {
+    [
+      {
+        "id": 12345,
+        "title": "Test Theme",
+        "themeValues": [
+          {
+            "id": "company-logo-max-height",
+            "value": 63
+          }
+        ]
+      }
+    ]
+  }
+}

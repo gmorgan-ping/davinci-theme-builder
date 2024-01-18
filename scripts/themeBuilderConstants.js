@@ -22,6 +22,7 @@ const webSafeFonts = [
   { value: "'Montserrat', 'sans-serif'", label: "Montserrat (sans-serif)" },
   { value: "'Garamond', 'serif'", label: "Garamond (serif)" },
   { value: "'Brush Script MT', 'cursive'", label: "Brush Script (cursive)" },
+  { value: "'Roboto', 'sans-serif'", label: "Roboto (sans-serif)" },
 ]
 
 const formAlignLeft = ".bg-light>div{left: 270px;position:fixed;}";
@@ -771,5 +772,4 @@ p.text-muted {
   border-radius: var(--card-body-border-radius);
   box-shadow: 1px 1px 3px 1px var(--card-shadow-color) !important;
 }
-
 `

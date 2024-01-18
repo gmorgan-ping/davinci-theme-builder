@@ -1,7 +1,7 @@
 {
-  "name": "DaVinci Theme Builder 1.2.1",
+  "name": "DaVinci Design Studio 1.0",
   "version": "1.2.1",
-  "description": "Theme Ping Identity DaVinci flows",
+  "description": "Rebrand Ping Identity DaVinci user experiences.",
   "manifest_version": 3,
   "action": {
     "default_popup": "index.html"
