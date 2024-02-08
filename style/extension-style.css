@@ -58,6 +58,11 @@ input[type="color"] {
   height: 38px;
 }
 
+.col-md-3 {
+  flex: 0 0 auto;
+  width: 25%
+}
+
 .col-md-4 {
   flex: 0 0 auto;
   width: 33.33333333%
@@ -68,7 +73,29 @@ input[type="color"] {
   width: 50%
 }
 
+.col-md-7 {
+  flex: 0 0 auto;
+  width: 58.33333333%
+}
+
+.col-md-9 {
+  flex: 0 0 auto;
+  width: 75%
+}
+
 .col-md-12 {
   flex: 0 0 auto;
   width: 100%
+}
+
+.custom-toast {
+  max-width: 240px;
+  width: 240px;
+  position: absolute;
+  bottom: -40px;
+  left: -240px;
+}
+
+.pl-3 {
+  padding-left: 15px !important
 }

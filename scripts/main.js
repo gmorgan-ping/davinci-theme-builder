@@ -1,191 +1,182 @@
 // Set logging for extension
-const enableLogs = true;
+const ENABLE_LOGS = true;
 
 const STORAGE_DAVINCI_CSS = "DAVINCI_CSS";
 const STORAGE_ACTIVE_TAB = "ACTIVE_TAB"
 const STORAGE_CUSTOM_THEMES = "CUSTOM_THEMES"
+const THEME_TYPE = { EXAMPLE: "EXAMPLE", CUSTOM: "CUSTOM" };
 
-let activeTabId = "prebuiltTab";
+// Fields
+let userThemeSelect;
+let exampleThemeSelect;
+
 let customThemesArray = [];
-let activeCustomTheme;
+let customThemeGuid;
+let activeTheme;
+let activeThemeType;
+
+//Modal Fields
+let saveStyleBtn;
+let updateStyleBtn;
+let themeNameField;
+
+//Delete Modal
+let btnManageThemes;
+let confirmDeleteButton;
+
 
 /**
  * Initialize chrome extension
  */
 const initializeExtension = () => {
 
-  console.log("Initializing Theme Builder");
-
-  // Build available web safe fonts control
-  const fontFamilySelect = document.getElementById("body-font-family");
-  buildSelectOptions(fontFamilySelect, webSafeFonts, true);
+  consoleLog("Initializing DaVinci Flow Design Studio");
 
   // Build theme selector control
-  const themeSelect = document.getElementById("example-themes");
-  buildSelectOptions(themeSelect, exampleThemes, false, true, "Select Example Theme");
-  themeSelect.addEventListener("change", function (e) {
-    applyExampleTheme(e.currentTarget.value);
-    userThemeSelect.selectedIndex = 0;
+  exampleThemeSelect = document.getElementById("example-themes");
+  buildSelectOptionsProps({
+    element: exampleThemeSelect,
+    options: exampleThemes,
+    includeSelectionText: true,
+    selectionTextLabel: "Select Example Theme",
+    changeHandler: exampleThemeSelectHandler
   });
 
-  // Build form position
+  // Get custom themes
+  userThemeSelect = document.getElementById("user-themes");
+  userThemeSelect.addEventListener("change", userThemeSelectHandler);
+  getAndPopulateUserThemes();
+
+  // Populate available web safe fonts options
+  const fontFamilySelect = document.getElementById("body-font-family");
+  buildSelectOptionsProps({ element: fontFamilySelect, options: webSafeFonts, shouldSort: true });
+
+  // Populate form position options
   const formPositionSelect = document.getElementById("form-position");
-  buildSelectOptions(formPositionSelect, divFormPositions);
+  buildSelectOptionsProps({ element: formPositionSelect, options: divFormPositions });
 
   // Create handler to place generated CSS on clipboard
   const copyCSSToClipboardBtn = document.getElementById("btnCopyCSS");
-  copyCSSToClipboardBtn.addEventListener("click", function (e) {
-    writeCSSToClipboard(e);
-  });
+  copyCSSToClipboardBtn.addEventListener("click", writeCSSToClipboard)
 
   // Create handler to apply the current CSS settings
   const applyCSSBtn = document.getElementById("btnApplyCSS");
-  applyCSSBtn.addEventListener("click", function (e) {
-    applyCSSFromFormControls();
-    updateButtonText(e.currentTarget, "✓ Applied", 1000); (e);
-  });
+  applyCSSBtn.addEventListener("click", applyCSSBtnHandler);
 
   // Create handler to reset CSS to the original values 
   const resetCSSBtn = document.getElementById("btnResetCSS");
-  resetCSSBtn.addEventListener("click", function (e) {
-    applyExampleTheme(themeSelect.value);
-    applyCSSFromFormControls();
-    updateButtonText(e.currentTarget, "✓ Restored", 1000); (e);
-  });
+  resetCSSBtn.addEventListener("click", resetCSSBtnHandler);
 
   // Create event handlers for form controls
   const paletteForm = document.getElementById("davinciCSSForm");
-  var inputs = paletteForm.querySelectorAll("input, select");
-
+  let inputs = paletteForm.querySelectorAll("input, select");
   inputs.forEach(input => {
-    consoleLog(`Adding listener for: ${input.id}`)
     input.addEventListener('change', applyCSSFromFormControls);
     input.addEventListener('keyup', applyCSSFromFormControls);
   });
 
   // Set tab listener
-  document.getElementById('myTabs').addEventListener('shown.bs.tab', function (event) {
-    activeTabId = event.target.getAttribute('href').substring(1);
-    persistActiveTab();
-  });
+  document.getElementById('myTabs').addEventListener('shown.bs.tab', tabChangeHandler);
 
-  // As chrome extensions refresh each time they're clicked, pull CSS settings
-  // from local storage 
-  chrome.storage.local.get([STORAGE_DAVINCI_CSS], function (items) {
-    consoleLog(items)
-    if (Object.keys(items).length === 0) {
-      applyExampleTheme("pingidentity");
-    } else {
-      applyCSSValuesFromLocalStorage(items[STORAGE_DAVINCI_CSS]);
-    }
-  });
+  // Retrieve css from local storage
+  chrome.storage.local.get([STORAGE_DAVINCI_CSS], retrievedCSSFromStorageHandler);
 
   // Set the active tab
-  chrome.storage.local.get([STORAGE_ACTIVE_TAB], function (items) {
-    consoleLog("Getting Active tab", items)
-    if (Object.keys(items).length !== 0) {
-      setActiveTab(items[STORAGE_ACTIVE_TAB].value)
-    }
-  });
+  chrome.storage.local.get([STORAGE_ACTIVE_TAB], setActiveTabHandler);
 
-  // Get custom themes
-  getAndPopulateUserThemes();
-  const userThemeSelect = document.getElementById("user-themes");
-  userThemeSelect.addEventListener("change", function (e) {
-    consoleLog("Set user theme ", e.currentTarget.value);
-    let filteredTheme = customThemesArray.filter(function (theme) {
-      return theme.id = e.currentTarget.value === theme.value;
-    })
-    if (filteredTheme && filteredTheme.length === 1) {
-      applyCSSValuesFromLocalStorage(filteredTheme[0].values);
-      consoleLog("Applying user theme: ", filteredTheme[0].label);
-      themeSelect.selectedIndex = 0;
-      applyCSSFromFormControls();
-    }
-  })
+  // Show Save Modal 
+  document.getElementById('btnSaveCSS').addEventListener('click', showSaveModalDialog);
 
+  // Set handler for saving custom theme
+  saveStyleBtn = document.getElementById('saveStyleBtn');
+  saveStyleBtn.addEventListener('click', saveCustomThemeHandler);
 
-  document.getElementById('btnSaveCSS').addEventListener('click', function () {
-    const themeNameField = document.getElementById('themeName');
-    themeNameField.value = activeCustomTheme;
-    console.log('Theme Name:', activeCustomTheme, themeNameField.value);
+  // Delete theme button
+  confirmDeleteButton = document.getElementById("confirmDeleteThemeBtn");
+  confirmDeleteButton.addEventListener("click", deleteCustomTheme);
 
-    // Find the modal element
-    const saveStyleModalElement = document.getElementById('saveStyleModal');
+  // Update theme handler
+  updateStyleBtn = document.getElementById('updateStyleBtn');
+  updateStyleBtn.addEventListener('click', updateThemeHandler);
 
-    // Create a new Bootstrap Modal instance
-    const saveStyleModal = new bootstrap.Modal(saveStyleModalElement);
+  // Assign the theme name input field
+  themeNameField = document.getElementById('themeName');
 
-    // Listen for the modal hidden event
-    saveStyleModalElement.addEventListener('hidden.bs.modal', function () {
-      // Remove the backdrop manually when the modal is hidden
-      const modalBackdrop = document.querySelector('.modal-backdrop');
-      if (modalBackdrop) {
-        modalBackdrop.remove();
-      }
-    });
-
-    // Toggle the modal visibility
-    saveStyleModal.toggle();
-  });
-
-
-  document.getElementById('saveStyleBtn').addEventListener('click', function () {
-    // Get the file name from the input field
-    const themeNameField = document.getElementById('themeName');
-
-    // Call the function to persist the custom theme with the file name
-    saveCurrentTheme(themeNameField.value);
-
-    dismissModal();
-  });
+  btnManageThemes = document.getElementById('btnManageThemes');
+  btnManageThemes.addEventListener("click", displayModalDeleteTheme)
 }
 
-const dismissModal = () => {
-  consoleLog("Attempting to dismiss modal")
-  // Hide the modal using Bootstrap's hide method
-  const saveStyleModalElement = document.getElementById('saveStyleModal');
-  const saveStyleModal = bootstrap.Modal.getInstance(saveStyleModalElement);
-
-  if (saveStyleModal) {
-    saveStyleModal.hide();
-  }
-
-  // Remove the modal backdrop
-  const modalBackdrop = document.querySelector('.modal-backdrop');
-  if (modalBackdrop) {
-    modalBackdrop.remove();
-  }
-}
 
 
 // Function to persist the custom theme with the given file name
-const saveCurrentTheme = (title) => {
-  // Your logic to persist the custom theme goes here
-  console.log('Persisting custom theme with  name:', title);
-
-  let theme = {}
-  theme.value = generateGUID();
-  theme.label = title;
-
+const saveCurrentTheme = (props) => {
+  let theme = {};
   let formValues = getCurrentCSSSettings();
   // remove key 'example keys' from mapping as not applicable
   formValues = formValues.filter(obj => obj.id !== 'example-themes' && obj.id !== 'user-themes');
   theme.values = formValues;
-  customThemesArray.push(theme);
+
+  if (props.updateExisting) {
+    theme.label = props.title;
+    theme.value = props.existingGuid;
+
+    // Find the existing element in the array
+    var index = customThemesArray.findIndex(function (obj) {
+      return obj.value === theme.value;
+    });
+
+    if (index !== -1) {
+      customThemesArray[index] = theme;
+    } else {
+      consoleLog("Unable to update existing theme");
+      return
+    }
+  } else {
+    theme.value = generateGUID();
+    theme.label = props.title;
+    customThemesArray.push(theme);
+  }
 
   persistCustomThemes(STORAGE_CUSTOM_THEMES, customThemesArray);
-  getAndPopulateUserThemes();
-
+  getAndPopulateUserThemes(theme.value);
 };
 
-const getAndPopulateUserThemes = () => {
+/**
+ * getCustomTheme
+ * @param {*} themeId The Id for the custom theme
+ * @returns customTheme
+ */
+const getCustomTheme = (themeId) => {
+  let filteredTheme = customThemesArray.filter(function (theme) {
+    return theme.id = themeId === theme.value;
+  })
+  return filteredTheme;
+}
+
+// Get custom themes from local storage
+const getAndPopulateUserThemes = (selectId) => {
   chrome.storage.local.get([STORAGE_CUSTOM_THEMES], function (items) {
     const userThemeSelect = document.getElementById("user-themes")
-    consoleLog("Getting custom themes", items)
     customThemesArray = Object.keys(items).length !== 0 ? items[STORAGE_CUSTOM_THEMES] : [];
-    buildSelectOptions(userThemeSelect, customThemesArray, true, true, "Select Saved Theme");
-    consoleLog("Custom themes:", customThemesArray)
+    buildUserThemeOptions();
+    // Once populated select option if passed
+    if (selectId) {
+      userThemeSelect.value = selectId;
+      var event = new Event('change');
+      userThemeSelect.dispatchEvent(event);
+    }
+  });
+}
+
+const buildUserThemeOptions = () => {
+  let labelText = customThemesArray.length > 0 ? "Select Saved Theme" : "No Saved Themes";
+
+  buildSelectOptionsProps({
+    element: userThemeSelect,
+    options: customThemesArray,
+    shouldSort: true,
+    includeSelectionText: true,
+    selectionTextLabel: labelText
   });
 }
 
@@ -197,7 +188,6 @@ const applyCSSValuesFromLocalStorage = (items) => {
   items.forEach(item => {
     const element = document.getElementById(item.id);
     if (element) {
-      // consoleLog(`Setting field: ${element.id} to ${item.value}`)
       element.value = item.value;
     }
   });
@@ -215,10 +205,14 @@ const applyCSSFromFormControls = () => {
 
   try {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-      chrome.tabs.sendMessage(tabs[0].id, messageObj);
+      try {
+        chrome.tabs.sendMessage(tabs[0].id, messageObj);
+      } catch (sendMessageError) {
+        console.error("Error sending message to active tab:", sendMessageError);
+      }
     });
-  } catch (error) {
-    console.log("Error sending CSS to active tab")
+  } catch (queryError) {
+    console.error("Error querying tabs:", queryError);
   }
 
   // Persist current settings
@@ -227,11 +221,11 @@ const applyCSSFromFormControls = () => {
 
 const persistCustomThemes = (storageKey, themes) => {
   chrome.storage.local.set({ [storageKey]: themes }, function () {
-    consoleLog('Themes persisted', themes);
+    consoleLog('Themes persisted');
   });
 }
 
-const persistActiveTab = () => {
+const persistActiveTab = (activeTabId) => {
   const tab = { id: STORAGE_ACTIVE_TAB, value: activeTabId };
   chrome.storage.local.set({ [STORAGE_ACTIVE_TAB]: tab }, function () {
     consoleLog('Active Tab Saved', tab);
@@ -255,7 +249,7 @@ const getCurrentCSSSettings = () => {
 const persistCurrentSettings = (settingsName) => {
   const formValuesArray = getCurrentCSSSettings();
   chrome.storage.local.set({ [settingsName]: formValuesArray }, function () {
-    console.log('Settings saved');
+    consoleLog('Settings saved');
   });
 };
 
@@ -264,9 +258,13 @@ const persistCurrentSettings = (settingsName) => {
  * @param {string} selectedValue - select dropdown value
  */
 const applyExampleTheme = (selectedValue) => {
-  console.log("loadThemeSettings", selectedValue);
+
   const selectedTheme = exampleThemes.find(theme => theme.value === selectedValue);
+  activeTheme = selectedTheme.label;
+  activeThemeType = THEME_TYPE.EXAMPLE;
   setCSSFormFields(selectedTheme);
+  setElementVisibility(btnManageThemes, false);
+  consoleLog(`Theme Change: ${activeTheme} - ${activeThemeType}`)
 }
 
 /**
@@ -282,6 +280,18 @@ const setCSSFormFields = (themeCSS) => {
       }
     }
   }
+}
+
+/**
+ * Show Toast
+ * @param {*} message 
+ */
+const showToast = (message) => {
+  const toastElement = document.getElementById('toast');
+  const toastInstance = new bootstrap.Toast(toastElement, { delay: 1500 });
+  const toastBody = toastElement.querySelector('.toast-body');
+  toastBody.textContent = message;
+  toastInstance.show();
 }
 
 initializeExtension();

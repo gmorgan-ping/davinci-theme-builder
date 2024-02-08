@@ -18,6 +18,17 @@ const setActiveTab = (activeTabId) => {
 };
 
 /**
+ * Function to show/hide an element by adding/removing d-none css class
+ * @param {HTMLElement} element 
+ * @param {boolean} [doShow] - flag indicating whether to show or hide the element
+ */
+const setElementVisibility = (element, doShow) => {
+  if (element) {
+    doShow ? element.classList.remove("d-none") : element.classList.add("d-none")
+  }
+}
+
+/**
  * Function to build options for a given select component
  * @param {HTMLSelectElement} element - select dropdown element
  * @param {Array<{ value: string, label: string }>} options - iterable list of items
@@ -25,22 +36,23 @@ const setActiveTab = (activeTabId) => {
  * @param {boolean} [includeSelectionText=false] - flag indicating whether to include a selection text option
  * @param {string} [selectionTextLabel="Please select"] - label for the selection text option
  */
-const buildSelectOptions = (element, options, shouldSort = false, includeSelectionText = false, selectionTextLabel = "Please select") => {
+const buildSelectOptionsProps = (props) => {
+  let element = props.element;
   element.innerHTML = "";
 
-  if (includeSelectionText) {
+  if (props.includeSelectionText) {
     const selectionTextOption = document.createElement("option");
     selectionTextOption.value = "";
-    selectionTextOption.textContent = selectionTextLabel;
+    selectionTextOption.textContent = props.selectionTextLabel || "Please select";
     selectionTextOption.disabled = true; // Set disabled attribute
     element.appendChild(selectionTextOption);
   }
 
-  if (shouldSort) {
-    options.sort((a, b) => a.label.localeCompare(b.label));
+  if (props.shouldSort) {
+    props.options.sort((a, b) => a.label.localeCompare(b.label));
   }
 
-  options.forEach(option => {
+  props.options.forEach(option => {
     const newOption = document.createElement("option");
     newOption.value = option.value;
     newOption.textContent = option.label;
@@ -48,6 +60,10 @@ const buildSelectOptions = (element, options, shouldSort = false, includeSelecti
     // Append the option element to the select element
     element.appendChild(newOption);
   });
+
+  if (props.changeHandler) {
+    element.addEventListener("change", props.changeHandler);
+  }
 }
 
 
@@ -92,7 +108,6 @@ const setElementValue = (id, value) => {
       }
       break;
   }
-  consoleLog(`Setting: ${id} (${element.type}) to ${value}`)
 }
 
 /**
@@ -147,36 +162,29 @@ const writeToClipboard = (text) => {
 }
 
 /**
- * Generates the custom CSS and writes to the clipboard
- */
-const writeCSSToClipboard = function (e) {
-  writeToClipboard(generateCSS());
-  updateButtonText(e.currentTarget, "✓ Copied", 1500);
+* Logging function that enables quick disabling of logs
+*/
+const consoleLog = (...message) => {
+  if (ENABLE_LOGS) {
+    console.log(...message);
+  }
 }
 
 /**
- * Method that updates a button's text for a period of time
- * then restores to original value
- * @param {button element} button - The button element
- * @param {string} newText - The text value to be set for the element
- * @param {integer} duration - The duration in ms to display the updated text
- */
-const updateButtonText = (button, newText, duration) => {
-  var originalText = button.textContent;
-  var originalBackgroundColor = button.style.backgroundColor;
+* Dismiss modal dialog
+*/
+const dismissModal = () => {
+  // Hide the modal using Bootstrap's hide method
+  const saveStyleModalElement = document.getElementById('saveStyleModal');
+  const saveStyleModal = bootstrap.Modal.getInstance(saveStyleModalElement);
 
-  // Update the button text to the new text
-  button.textContent = newText;
-  button.classList.toggle("cssActionActive");
+  if (saveStyleModal) {
+    saveStyleModal.hide();
+  }
 
-  setTimeout(() => {
-    button.textContent = originalText;
-    button.classList.toggle("cssActionActive");
-  }, duration);
-}
-
-const consoleLog = (...message) => {
-  if (enableLogs) {
-    console.log(...message);
+  // Remove the modal backdrop
+  const modalBackdrop = document.querySelector('.modal-backdrop');
+  if (modalBackdrop) {
+    modalBackdrop.remove();
   }
 }

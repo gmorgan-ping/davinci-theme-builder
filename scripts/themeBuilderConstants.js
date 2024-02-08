@@ -45,7 +45,7 @@ const exampleThemes = [
     "card-background-color": "255, 255, 255",
     "background-image-url": "",
     "body-font-family": "'Montserrat', 'sans-serif'",
-    "body-font-size": "0.9",
+    "body-font-size": "0.935",
     "text-color-primary": "61, 69, 77",
     "heading-text-color": "61, 69, 77",
     "text-color-error": "163, 19, 0",

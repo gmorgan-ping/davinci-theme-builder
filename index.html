@@ -7,20 +7,29 @@
   <link href="style/bootstrap.css" rel="stylesheet">
   <link href="style/extension-style.css" rel="stylesheet">
   <title>DaVinci Style</title>
-  <style>
-
-  </style>
 </head>
 
 <body>
   <div class="main-container align-center">
     <div class="d-flex align-items-center mb-3">
-      <img src="https://cdn.glitch.global/45a903ea-a07c-4016-9a65-324856c41c4b/davinci.png?v=1679319011133" alt="Logo"
-        class="logo img-fluid me-3">
-      <h1 class="mb-0">DaVinci Flow Branding Studio</h1>
+      <img src="theme-assets/davinci.png" alt="DaVinci Flow Design Studio" class="logo img-fluid me-3">
+      <h1 class="mb-0">DaVinci Flow Design Studio</h1>
+    </div>
+    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 11">
+      <div id="toast" class="toast align-items-center text-white bg-primary border-0 custom-toast" role="alert"
+        aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+          <div class="toast-body pl-3">
+            Message here
+          </div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+            aria-label="Close"></button>
+        </div>
+      </div>
     </div>
 
-    <p>Modify the following settings to customize the look and feel of your PingOne DaVinci flow, or choose from our
+    <p>Modify the following settings to customize the look and feel of your
+      PingOne DaVinci flow, or choose from our
       selection of preconfigured themes.</p>
 
     <!-- Tab Panels -->
@@ -32,7 +41,7 @@
         <a class="nav-link" id="generalTab" data-bs-toggle="tab" href="#logo">Logo</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="colorsTab" data-bs-toggle="tab" href="#pagePanel">Page &amp; Panel</a>
+        <a class="nav-link" id="colorsTab" data-bs-toggle="tab" href="#pagePanel">Widget</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" id="typographyTab" data-bs-toggle="tab" href="#typography">Typography</a>
@@ -54,7 +63,9 @@
           <!-- Dropdown for Prebuilt Examples -->
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label for="example-themes" class="form-label">Select a Prebuilt Example:</label>
+              <label for="example-themes" class="form-label">
+                Select a Prebuilt Example:
+              </label>
               <select class="form-select" id="example-themes">
                 <!-- Available themes go here -->
               </select>
@@ -63,16 +74,16 @@
               <div class="mb-3">
                 <label for="user-themes" class="form-label">Saved Themes:</label>
                 <select class="form-select" id="user-themes">
-                  <!-- Available themes go here -->
+                  <!-- Saved themes go here -->
                 </select>
               </div>
               <div>
-                <button id="btnManageThemes" type="button" class="btn btn-link float-end">
-                  Manage Saved Themes</button>
+                <button id="btnManageThemes" type="button" title="Delete selected custom theme"
+                  class="btn btn-link float-end d-none">
+                  Delete Custom Theme</button>
               </div>
             </div>
           </div>
-
         </div>
 
         <!-- Logo Content -->
@@ -86,7 +97,9 @@
 
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label for="company-logo-max-height" class="form-label">Logo Height:</label>
+              <label for="company-logo-max-height" class="form-label">
+                Logo Height:
+              </label>
               <div class="input-group">
                 <input type="number" class="form-control" id="company-logo-max-height"
                   aria-describedby="logoHeightAddon">
@@ -96,30 +109,37 @@
           </div>
         </div>
 
-
         <!-- Page and Panel -->
         <div class="tab-pane fade" id="pagePanel">
           <!-- Content for Colors Section -->
           <div class="row">
             <div class="col-md-12 mb-3">
-              <label for="background-image-url" class="form-label">Page Background Image URL:</label>
+              <label for="background-image-url" class="form-label">
+                Page Background Image URL:
+              </label>
               <input type="text" class="form-control" id="background-image-url">
             </div>
           </div>
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label for="card-background-color" class="form-label">Panel Background Color:</label>
+              <label for="card-background-color" class="form-label">
+                Panel Background Color:
+              </label>
               <input type="color" class="form-control" id="card-background-color">
             </div>
             <div class="col-md-6 mb-3">
-              <label for="card-background-color" class="form-label">Panel Shadow Color:</label>
+              <label for="card-background-color" class="form-label">
+                Panel Shadow Color:
+              </label>
               <input type="color" class="form-control" id="card-shadow-color">
             </div>
           </div>
           <div class="row">
 
             <div class="col-md-6 mb-3">
-              <label for="card-body-border-radius" class="form-label">Panel Border Radius:</label>
+              <label for="card-body-border-radius" class="form-label">
+                Panel Border Radius:
+              </label>
               <div class="input-group">
                 <input type="number" class="form-control" id="card-body-border-radius"
                   aria-describedby="formBorderRadiusAddon">
@@ -127,7 +147,9 @@
               </div>
             </div>
             <div class="col-md-6 mb-3">
-              <label for="form-position" class="form-label">Form Position:</label>
+              <label for="form-position" class="form-label">
+                Form Position:
+              </label>
               <select class="form-select" id="form-position">
                 <!-- Dynamically added -->
               </select>
@@ -140,7 +162,9 @@
         <div class="tab-pane fade padded-top" id="typography">
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label for="body-font-family" class="form-label">Font Family:</label>
+              <label for="body-font-family" class="form-label">
+                Font Family:
+              </label>
               <select class="form-select" id="body-font-family">
                 <!-- Available fonts go here -->
               </select>
@@ -148,7 +172,9 @@
 
             <!-- Font Size -->
             <div class="col-md-6 mb-3">
-              <label for="body-font-size" class="form-label">Font Size:</label>
+              <label for="body-font-size" class="form-label">
+                Font Size:
+              </label>
               <div class="input-group">
                 <input type="number" class="form-control" id="body-font-size" aria-describedby="fontSizeAddon">
                 <span class="input-group-text" id="fontSizeAddon">rem</span>
@@ -158,20 +184,26 @@
           <div class="row">
             <!-- Primary Text Color Selector -->
             <div class="col-md-6 mb-3">
-              <label for="text-color-primary" class="form-label">Primary Text Color:</label>
+              <label for="text-color-primary" class="form-label">
+                Primary Text Color:
+              </label>
               <input type="color" class="form-control" id="text-color-primary">
             </div>
 
             <!-- Headings Color Selector -->
             <div class="col-md-6 mb-3">
-              <label for="heading-text-color" class="form-label">Headings Color:</label>
+              <label for="heading-text-color" class="form-label">
+                Headings Color:
+              </label>
               <input type="color" class="form-control" id="heading-text-color">
             </div>
           </div>
           <div class="row">
             <!-- Error Text Color Selector -->
             <div class="col-md-6 mb-3">
-              <label for="text-color-error" class="form-label">Error Text Color:</label>
+              <label for="text-color-error" class="form-label">
+                Error Text Color:
+              </label>
               <input type="color" class="form-control" id="text-color-error">
             </div>
           </div>
@@ -182,23 +214,30 @@
 
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label for="button-primary-background-color" class="form-label">Button Background Color:</label>
+              <label for="button-primary-background-color" class="form-label">
+                Button Background Color:</label>
               <input type="color" class="form-control" id="button-primary-background-color">
             </div>
 
             <!-- Button Text Color Selector -->
             <div class="col-md-6 mb-3">
-              <label for="button-primary-text-color" class="form-label">Button Text Color:</label>
+              <label for="button-primary-text-color" class="form-label">
+                Button Text Color:
+              </label>
               <input type="color" class="form-control" id="button-primary-text-color">
             </div>
           </div>
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label for="link-button-primary-color" class="form-label">Link Button Color:</label>
+              <label for="link-button-primary-color" class="form-label">
+                Link Button Color:
+              </label>
               <input type="color" class="form-control" id="link-button-primary-color">
             </div>
             <div class="col-md-6 mb-3">
-              <label for="button-primary-border-radius" class="form-label">Button Border Radius:</label>
+              <label for="button-primary-border-radius" class="form-label">
+                Button Border Radius:
+              </label>
               <div class="input-group">
                 <input type="number" class="form-control" id="button-primary-border-radius"
                   aria-describedby="buttonBorderRadiusAddon">
@@ -208,7 +247,9 @@
           </div>
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label for="form-control-border-radius" class="form-label">Text Input Border Radius:</label>
+              <label for="form-control-border-radius" class="form-label">
+                Text Input Border Radius:
+              </label>
               <div class="input-group">
                 <input type="number" class="form-control" id="form-control-border-radius"
                   aria-describedby="textInputBorderRadiusAddon">
@@ -216,7 +257,9 @@
               </div>
             </div>
             <div class="col-md-6 mb-3">
-              <label for="focus-highlight-color" class="form-label">Field Focus Color:</label>
+              <label for="focus-highlight-color" class="form-label">
+                Field Focus Color:
+              </label>
               <input type="color" class="form-control" id="focus-highlight-color">
             </div>
           </div>
@@ -226,13 +269,17 @@
           <div class="row">
             <!-- Activity Spinner Color Selector -->
             <div class="col-md-6 mb-3">
-              <label for="activity-indicator-color" class="form-label">Activity Spinner Color:</label>
+              <label for="activity-indicator-color" class="form-label">
+                Activity Spinner Color:
+              </label>
               <input type="color" class="form-control" id="activity-indicator-color">
             </div>
 
             <!-- Polling Indicator Color Selector -->
             <div class="col-md-6 mb-3">
-              <label for="polling-indicator-color" class="form-label">Polling Indicator Color:</label>
+              <label for="polling-indicator-color" class="form-label">
+                Polling Indicator Color:
+              </label>
               <input type="color" class="form-control" id="polling-indicator-color">
             </div>
           </div>
@@ -241,17 +288,55 @@
         <!-- About Screen -->
         <div class="tab-pane fade padded-top" id="about">
           <div class="utility-description">
-            <p>Welcome to the <strong>DaVinci Flow Design Studio</strong>, a light-weight utility designed for
-              customizing Ping Identity
-              DaVinci flows created using Bootstrap CSS. </p>
-            <p>This tool simplifies rebranding, offering a user-friendly interface to modify logos,
+            <p>Welcome to the <strong>DaVinci Flow Design Studio</strong>, a
+              light-weight Chrome Extension designed for
+              customizing Ping Identity DaVinci Flows that leverage Bootstrap
+              CSS. </p>
+            <p>This tool simplifies rebranding, offering a user-friendly
+              interface to modify logos,
               background images, fonts, and more.</p>
-            <p>Whether you're a developer streamlining the process or a designer
-              enhancing the out-of-the-box experience, the Design Studio ensures a polished and personalized touch.</p>
-            <div class="version-info">
-              <p class="mb-0"><strong>Version:</strong> 2.0.0</p>
-              <p class="mb-0"><strong>Release Date:</strong> January 20, 2024</p>
-              <p class="mb-0"><strong>Created By:</strong> Ping Identity - Cloud Solutions &amp; Velocity</p>
+            <p>Whether you're a developer streamlining the process or a
+              designer
+              enhancing the out-of-the-box experience, the Design Studio helps
+              to deliver a polished and personalized
+              touch.</p>
+            <div class="version-info " style>
+              <div class="row">
+                <div class="col-md-3">
+                  <p class="mb-0 fw-bold">Version:</p>
+                </div>
+                <div class="col-md-9">
+                  <p class="mb-0">2.0.0</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">
+                  <p class="mb-0 fw-bold">Release Date:</p>
+                </div>
+                <div class="col-md-9">
+                  <p class="mb-0">February 8, 2024</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">
+                  <p class="mb-0 fw-bold">Created By:</p>
+                </div>
+                <div class="col-md-9">
+                  <p class="mb-0">Ping Identity - Cloud Solutions &amp;
+                    Velocity</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">
+                  <p class="mb-0 fw-bold">Docs:</p>
+                </div>
+                <div class="col-md-9">
+                  <p class="mb-0">
+                    <a href="https://library.pingidentity.com/share/davinci-flow-design-studio" target="_PingLibrary">
+                      Ping Library - DaVinci Flow Design Studio</a>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -274,11 +359,11 @@
     </form>
   </div>
 
-  <!-- Modal -->
+  <!-- Modal Save Theme -->
   <div class="modal fade" id="saveStyleModal" tabindex="-1" aria-labelledby="saveStyleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header" style="background-color: #cecece;">
+        <div class="modal-header">
           <h5 class="modal-title" id="saveStyleModalLabel">Save Theme</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
@@ -287,8 +372,37 @@
           <input type="text" class="form-control" id="themeName">
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" id="saveStyleBtn">Save</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-secondary " id="updateStyleBtn" data-bs-dismiss="modal">
+            Update Existing
+          </button>
+          <button type="button" class="btn btn-primary" id="saveStyleBtn">
+            Save as New
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Delete Themes -->
+  <div class="modal fade" id="deleteThemeModal" tabindex="-1" aria-labelledby="deleteThemeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteThemeModalLabel">Confirm Deletion</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete '<span id="deleteThemeName" class="fw-bold"></span>' theme?</p>
+          <p>Once the theme has been removed, the default "Ping Identity"
+            theme will be applied.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+            id="confirmDeleteThemeBtn">Delete</button>
         </div>
       </div>
     </div>
@@ -296,6 +410,7 @@
 
   <script src="scripts/bootstrap.min.js"></script>
   <script src="scripts/themeBuilderConstants.js"></script>
+  <script src="scripts/form-handlers.js"></script>
   <script src="scripts/generateCSS.js"></script>
   <script src="content.js"></script>
   <script src="scripts/utils.js"></script>
