@@ -1,7 +1,7 @@
 {
-  "name": "DaVinci Theme Builder",
-  "version": "1.2.0",
-  "description": "Theme Ping Identity DaVinci flows",
+  "name": "DaVinci Design Studio 1.0",
+  "version": "1.0",
+  "description": "Welcome to the DaVinci Flow Design Studio, a light-weight Chrome Extension designed for customizing Ping Identity DaVinci Flows that leverage Bootstrap CSS.",
   "manifest_version": 3,
   "action": {
     "default_popup": "index.html"
