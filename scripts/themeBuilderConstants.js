@@ -758,10 +758,15 @@ p.text-muted {
   background-color: var(--polling-indicator-color) !important;
 }
 
-/*  BUTTON ACTIVITY INDICATOR  */
+/*  BUTTON ACTIVITY INDICATOR, PROGRESS SPINNER  */
 .css-sw2ho0 {
   /*  spinning circle color  */
   --primary-color: var(--activity-indicator-color) !important;
+}
+
+/* PROGRESS SPINNER */
+.spinner-color {
+  color: var(--polling-indicator-color) !important;
 }
 
 .card-body.p-5.d-flex.flex-column {
