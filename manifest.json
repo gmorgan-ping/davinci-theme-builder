@@ -1,5 +1,5 @@
 {
-  "name": "DaVinci Design Studio 1.1",
+  "name": "DaVinci Design Studio",
   "version": "1.1",
   "description": "Welcome to the DaVinci Flow Design Studio, a light-weight Chrome Extension designed for customizing Ping Identity DaVinci Flows that leverage Bootstrap CSS.",
   "manifest_version": 3,
