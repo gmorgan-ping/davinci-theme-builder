@@ -70,6 +70,9 @@ const generateCSS = function () {
     /*  BUTTON DISABLED ALPHA  */
     --button-disabled-alpha: 0.65;
 
+    --button-primary-disabled-background-color: ${hexToRgb(getFormValue("button-primary-disabled-background-color"))};
+    --button-primary-disabled-text-color: ${hexToRgb(getFormValue("button-primary-disabled-text-color"))};
+
     /********************************************************
      * FORM CONTROLS
      *********************************************************/

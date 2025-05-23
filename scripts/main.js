@@ -201,23 +201,31 @@ const applyCSSFromFormControls = () => {
   const messageObj = {
     action: "applyDaVinciCSS",
     css: generateCSS()
-  }
+  };
 
-  try {
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-      try {
-        chrome.tabs.sendMessage(tabs[0].id, messageObj);
-      } catch (sendMessageError) {
-        console.error("Error sending message to active tab:", sendMessageError);
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    if (!tabs[0]?.id) {
+      console.error("No active tab found");
+      showToast("Unable to apply style – no active tab found.");
+      return;
+    }
+
+    chrome.tabs.sendMessage(tabs[0].id, messageObj, () => {
+      const err = chrome.runtime.lastError;
+
+      if (err) {
+        console.error("SendMessage Error:", err.message);
+        showToast("Unable to apply style – please reload the page and try again.");
+      } else {
+        // No toast on success
+        console.log("CSS applied");
       }
     });
-  } catch (queryError) {
-    console.error("Error querying tabs:", queryError);
-  }
+});
 
-  // Persist current settings
-  persistCurrentSettings(STORAGE_DAVINCI_CSS);
-}
+persistCurrentSettings(STORAGE_DAVINCI_CSS);
+};
+
 
 const persistCustomThemes = (storageKey, themes) => {
   chrome.storage.local.set({ [storageKey]: themes }, function () {

@@ -35,7 +35,7 @@
     <!-- Tab Panels -->
     <ul class="nav nav-tabs" id="myTabs">
       <li class="nav-item">
-        <a class="nav-link active" id="prebuiltTab" data-bs-toggle="tab" href="#prebuiltContent">Theme Templates</a>
+        <a class="nav-link active" id="prebuiltTab" data-bs-toggle="tab" href="#prebuiltContent">Templates</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" id="generalTab" data-bs-toggle="tab" href="#logo">Logo</a>
@@ -44,11 +44,16 @@
         <a class="nav-link" id="colorsTab" data-bs-toggle="tab" href="#pagePanel">Widget</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="typographyTab" data-bs-toggle="tab" href="#typography">Typography</a>
+        <a class="nav-link" id="typographyTab" data-bs-toggle="tab" href="#typography">Text</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="formStylingTab" data-bs-toggle="tab" href="#formStyling">Form Styling</a>
+        <a class="nav-link" id="formStylingTab" data-bs-toggle="tab" href="#formStyling">Form</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" id="buttonStylingTab" data-bs-toggle="tab" href="#buttonStyling">Buttons</a>
+      </li>
+
+
       <li class="nav-item">
         <a class="nav-link" id="indicatorsTab" data-bs-toggle="tab" href="#indicators">Indicators</a>
       </li>
@@ -212,6 +217,61 @@
         <!-- Form Styling -->
         <div class="tab-pane fade padded-top" id="formStyling">
 
+          <!-- <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="button-primary-background-color" class="form-label">
+                Button Background Color:</label>
+              <input type="color" class="form-control" id="button-primary-background-color">
+            </div> -->
+
+          <!-- Button Text Color Selector -->
+          <!--<div class="col-md-6 mb-3">
+              <label for="button-primary-text-color" class="form-label">
+                Button Text Color:
+              </label>
+              <input type="color" class="form-control" id="button-primary-text-color">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="link-button-primary-color" class="form-label">
+                Link Button Color:
+              </label>
+              <input type="color" class="form-control" id="link-button-primary-color">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="button-primary-border-radius" class="form-label">
+                Button Border Radius:
+              </label>
+              <div class="input-group">
+                <input type="number" class="form-control" id="button-primary-border-radius"
+                  aria-describedby="buttonBorderRadiusAddon">
+                <span class="input-group-text" id="buttonBorderRadiusAddon">px</span>
+              </div>
+            </div>
+          </div> -->
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="form-control-border-radius" class="form-label">
+                Text Input Border Radius:
+              </label>
+              <div class="input-group">
+                <input type="number" class="form-control" id="form-control-border-radius"
+                  aria-describedby="textInputBorderRadiusAddon">
+                <span class="input-group-text" id="textInputBorderRadiusAddon">px</span>
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="focus-highlight-color" class="form-label">
+                Field Focus Color:
+              </label>
+              <input type="color" class="form-control" id="focus-highlight-color">
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane fade padded-top" id="buttonStyling">
+
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="button-primary-background-color" class="form-label">
@@ -248,22 +308,20 @@
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="form-control-border-radius" class="form-label">
-                Text Input Border Radius:
+                Disabled Button Background Color:
               </label>
-              <div class="input-group">
-                <input type="number" class="form-control" id="form-control-border-radius"
-                  aria-describedby="textInputBorderRadiusAddon">
-                <span class="input-group-text" id="textInputBorderRadiusAddon">px</span>
-              </div>
+              <input type="color" class="form-control" id="button-primary-disabled-background-color">
             </div>
             <div class="col-md-6 mb-3">
-              <label for="focus-highlight-color" class="form-label">
-                Field Focus Color:
+              <label for="form-control-border-radius" class="form-label">
+                Disabled Button Text Color:
               </label>
-              <input type="color" class="form-control" id="focus-highlight-color">
+              <input type="color" class="form-control" id="button-primary-disabled-text-color">
             </div>
+
           </div>
         </div>
+
         <!-- Indicators -->
         <div class="tab-pane fade padded-top" id="indicators">
           <div class="row">
@@ -306,7 +364,7 @@
                   <p class="mb-0 fw-bold">Version:</p>
                 </div>
                 <div class="col-md-9">
-                  <p class="mb-0">2.0.0</p>
+                  <p class="mb-0">2.0.1</p>
                 </div>
               </div>
               <div class="row">
@@ -314,7 +372,7 @@
                   <p class="mb-0 fw-bold">Release Date:</p>
                 </div>
                 <div class="col-md-9">
-                  <p class="mb-0">February 8, 2024</p>
+                  <p class="mb-0">May 23, 2025</p>
                 </div>
               </div>
               <div class="row">
@@ -412,7 +470,6 @@
   <script src="scripts/themeBuilderConstants.js"></script>
   <script src="scripts/form-handlers.js"></script>
   <script src="scripts/generateCSS.js"></script>
-  <script src="content.js"></script>
   <script src="scripts/utils.js"></script>
   <script src="scripts/main.js"></script>
 </body>
